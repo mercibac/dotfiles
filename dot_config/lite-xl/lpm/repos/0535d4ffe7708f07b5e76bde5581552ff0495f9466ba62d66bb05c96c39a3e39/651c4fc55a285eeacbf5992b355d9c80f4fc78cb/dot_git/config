@@ -1,0 +1,9 @@
+[core]
+	bare = false
+	repositoryformatversion = 0
+	filemode = false
+	ignorecase = true
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/eugenpt/lite-xl-vibe
+	fetch = +refs/heads/*:refs/remotes/origin/*

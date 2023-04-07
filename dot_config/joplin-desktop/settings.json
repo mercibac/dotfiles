@@ -1,0 +1,38 @@
+{
+	"$schema": "https://joplinapp.org/schema/settings.json",
+	"locale": "en_GB",
+	"api.token": "3a41d39c3b7dd46c0a800a24df9b4ba70d49a4ae9191d26c61bb49929055d5b8e229a7839abf7b0457a5552b4199549ccc52f0a51c1780b688d83fdbe554b2ba",
+	"markdown.plugin.softbreaks": false,
+	"markdown.plugin.typographer": false,
+	"spellChecker.language": "en-US",
+	"ui.layout": {
+		"key": "root",
+		"children": [
+			{
+				"key": "sideBar",
+				"width": 111,
+				"visible": true
+			},
+			{
+				"key": "noteList",
+				"width": 265,
+				"visible": true
+			},
+			{
+				"key": "editor",
+				"visible": true
+			}
+		],
+		"visible": true
+	},
+	"noteVisiblePanes": [
+		"viewer"
+	],
+	"editor.codeView": true,
+	"sync.target": 5,
+	"style.editor.contentMaxWidth": 600,
+	"autoUpdateEnabled": false,
+	"sync.2.path": "D:\\PLANNING\\JOPLIN",
+	"sync.5.path": "https://nch.pl/",
+	"sync.5.username": "MerciBac7"
+}

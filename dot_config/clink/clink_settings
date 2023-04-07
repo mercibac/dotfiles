@@ -1,0 +1,175 @@
+# name: Enable automatic suggestions
+# type: boolean
+autosuggest.enable = True
+
+# name: Selects default key bindings
+# type: enum
+# options: bash,windows
+clink.default_bindings = windows
+
+# name: Strips CR and LF chars on paste
+# type: enum
+# options: delete,space,ampersand,crlf
+clink.paste_crlf = space
+
+# name: Auto-answer terminate prompt
+# type: enum
+# options: off,answer_yes,answer_no
+cmd.auto_answer = off
+
+# name: Pressing Ctrl-D exits session
+# type: boolean
+cmd.ctrld_exits = True
+
+# name: Argument color
+# type: color
+color.arg = bold
+
+# name: Argument info color
+# type: color
+color.arginfo = sgr 38;5;172
+
+# name: Argmatcher color
+# type: color
+color.argmatcher = sgr 1;38;5;40
+
+# name: Shell command completions
+# type: color
+color.cmd = sgr 1;38;5;231
+
+# name: Color for comment row
+# type: color
+color.comment_row = sgr 38;5;87;48;5;18
+
+# name: Description completion color
+# type: color
+color.description = sgr 38;5;39
+
+# name: Doskey completions
+# type: color
+color.doskey = sgr 1;38;5;75
+
+# name: Color for executable command word
+# type: color
+color.executable = sgr 1;38;5;33
+
+# name: Filtered completion color
+# type: color
+color.filtered = sgr 38;5;231
+
+# name: Flag color
+# type: color
+color.flag = sgr 38;5;117
+
+# name: Hidden file completions
+# type: color
+color.hidden = sgr 38;5;160
+
+# name: History expansion color
+# type: color
+color.histexpand = sgr 97;48;5;55
+
+# name: Horizontal scroll marker color
+# type: color
+color.horizscroll = sgr 38;5;16;48;5;30
+
+# name: Input text color
+# type: color
+color.input = sgr 38;5;222
+
+# name: For user-interaction prompts
+# type: color
+color.interact = bold
+
+# name: Message area color
+# type: color
+color.message = default
+
+# name: Readonly file completions
+# type: color
+color.readonly = sgr 38;5;28
+
+# name: Selected completion color
+# type: color
+color.selected_completion = sgr 38;5;16;48;5;254
+
+# name: Selection color
+# type: color
+color.selection = sgr 38;5;16;48;5;179
+
+# name: Color for suggestion text
+# type: color
+color.suggestion = sgr 38;5;239
+
+# name: Unexpected argument color
+# type: color
+color.unexpected = default
+
+# name: Color for unrecognized command word
+# type: color
+color.unrecognized = sgr 38;5;203
+
+# name: Controls how duplicate entries are handled
+# type: enum
+# options: add,ignore,erase_prev
+history.dupe_mode = erase_prev
+
+# name: Sets how command history expansion is applied
+# type: enum
+# options: off,on,not_squoted,not_dquoted,not_quoted
+history.expand_mode = not_quoted
+
+# name: Skip adding lines prefixed with whitespace
+# type: boolean
+history.ignore_space = False
+
+# name: The number of history lines to save
+# type: integer
+history.max_lines = 10000
+
+# name: Save history between sessions
+# type: boolean
+history.save = False
+
+# name: Share history between instances
+# type: boolean
+history.shared = False
+
+# name: History item timestamps
+# type: enum
+# options: off,save,show
+history.time_stamp = show
+
+# name: Expand envvars when completing
+# type: boolean
+match.expand_envvars = True
+
+# name: Try substring if no prefix matches
+# type: boolean
+match.substring = True
+
+# name: Controls VT emulation
+# type: enum
+# options: native,emulate,auto
+terminal.emulation = auto
+
+# name: Esc sends a literal escape character
+# type: boolean
+terminal.raw_esc = False
+
+# name: Support Windows' Ctrl-Alt substitute for AltGr
+# type: boolean
+terminal.use_altgr_substitute = True
+
+
+
+exec.cwd = 1
+
+exec.dirs = 1
+
+exec.enable = 1
+
+exec.path = 1
+
+exec.space_prefix = 1
+

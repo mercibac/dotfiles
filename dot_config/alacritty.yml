@@ -1,0 +1,76 @@
+# Alacritty Sample Config
+# https://youtu.be/1aw8IDH826Y
+
+live_config_reload: true
+
+colors:
+  primary:
+    background: "#1e2127"
+    foreground: "#D8DEE9"
+
+font:
+  normal:
+    family: "MesloLGS NF"
+    style: Regular
+  bold:
+    family: "MesloLGS NF"
+    style: Bold
+  italic:
+    family: "MesloLGS NF"
+    style: Italic
+  bold_italic:
+    family: "MesloLGS NF"
+    style: Bold Italic
+  size: 14
+
+window:    
+  padding:
+    x: 10
+    y: 35
+  dimensions:
+   columns: 120
+   lines: 28
+  startup_mode: Windowed
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  
+  position:
+    x: 5
+    y: 5
+
+  # Spread additional padding evenly around the terminal content.
+  # dynamic_padding: true
+
+  decorations: "none"
+  
+  opacity: 0.90
+
+shell:
+  # program: "pwsh -nologo"
+  program: nu
+
+draw_bold_text_with_bright_colors: true
+
+live_config_reload: true
+
+scrolling:
+  history: 1000
+  # multiplier: 10
+
+cursor:
+  style:
+    shape: Beam #Underline
+    blinking: on
+  vi_mode_style:
+    shape: block
+
+mouse:
+  faux_scrolling_lines: 3
+# Windows
+working_directory: "C:\\"
+
+# Key bindings
+key_bindings:
+  - { key: F11, action: ToggleFullscreen }
