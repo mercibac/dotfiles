@@ -22,5 +22,9 @@
 - shell:
   - git submodule sync --recursive
    # the following have to run after linking ~/.gitconfig
+<<<<<<< HEAD
   - git update-submodules
+=======
+  - git update-submodules --force
+>>>>>>> 1679dc67aabbf06525a82bdf071644f797897f19
     
