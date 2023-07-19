@@ -49,8 +49,8 @@ window:
   opacity: 0.90
 
 shell:
-  program: "pwsh -nologo"
-  # program: nu
+  # program: "pwsh -nologo"
+  program: nu
   # program: C:\Program Files\Git\bin\bash.exe
   # args:
    # - --login

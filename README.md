@@ -1,5 +1,7 @@
 # Mercibac's dotfiles
 
+![alacritty screenshot](./images/neovim.png)
+
 ## Configuration
 
 - Terminal: [alacritty](https://github.com/alacritty/alacritty)
