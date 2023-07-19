@@ -1,7 +1,9 @@
-# dotfiles
+# Mercibac's dotfiles
 
-These are my dotfiles. In my day to day workflow I use:
+## Configuration
 
-- Terminal emulator: alacritty
-- Shell:  nushell
-- Shell prompt: starship
+- Terminal: [alacritty](https://github.com/alacritty/alacritty)
+- Shell: [nushell](https://github.com/nushell/nushell) and [powershell](https://github.com/PowerShell/PowerShell)
+- Editor: [neovim](https://github.com/neovim/neovim)
+- Prompt: [starship](https://github.com/starship/starship)
+- Window manager: [komorebi](https://github.com/LGUG2Z/komorebi)
