@@ -1,1 +1,0 @@
-return { path = "C:\\Users\\Merci_Bacman\\.config\\nvim\\lua\\plugins", documents = {["type"]="leaf",["views"]={[1]={["scroll"]={["to"]={["x"]=0,["y"]=0},["x"]=0,["y"]=0},["type"]="view",["module"]="core.emptyview",["active"]=true}},["active_view"]=1}, directories = {} }
