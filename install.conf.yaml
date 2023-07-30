@@ -11,9 +11,10 @@
     ~/.config/nvim:
     ~/AppData/Roaming/nushell/config.nu: nushell/config.nu
     ~/AppData/Roaming/nushell/env.nu: nushell/env.nu
+    ~/.cache/starship/init.nu: starship/init.nu
+    ~/.config/starship.toml: starship/starship.toml
     ~/.config/powershell:
     ~/.config/alacritty.yml:
-    ~/.config/starship.toml:
     ~/.config/whkdrc:
 
 - shell:

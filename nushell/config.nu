@@ -662,8 +662,12 @@ alias ko = komorebic start -c ($env.USERPROFILE | path join komorebi.json) --whk
 alias ks = komorebic stop
 alias alacritty-shell = vim ~\.config\alacritty.yml
 alias serve = python -m http.server
-alias workon = activate-python-env
+# alias workon = activate-python-env
 alias cat = bat
+alias rm = rm -t
+alias oc = ouch compress
+alias od = ouch decompress
+alias db = mysql -u root -p
 
 
 def-env take [dir] {
@@ -682,12 +686,7 @@ def-env lsr [dir] {
 def-env workon [venv: string] {
     let path = $'(echo $env.WORKON_HOME | path join $venv | path join Scripts)'
     cd $path
-    # overlay use mymod
-    # (nu -c `overlay use $path`)
-    # file
-    # (echo $env.WORKON_HOME | path join $venv | path join scripts  | path join activate.nu)'
 }
-
 
 # External tools
 source ~/.cache\starship\init.nu
