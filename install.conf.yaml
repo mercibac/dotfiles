@@ -12,6 +12,7 @@
     ~/AppData/Roaming/nushell/config.nu: nushell/config.nu
     ~/AppData/Roaming/nushell/env.nu: nushell/env.nu
     ~/.cache/starship/init.nu: starship/init.nu
+    ~/.zoxide.nu: nushell/zoxide.nu
     ~/.config/starship.toml: starship/starship.toml
     ~/.config/powershell:
     ~/.config/alacritty.yml:
