@@ -28,6 +28,7 @@ Set-Alias tig "C:\Program Files\Git\usr\bin\tig.exe"
 Set-Alias less "C:\Program Files\Git\usr\bin\less.exe"
 Set-Alias ls ls_git
 Set-Alias cat bat
+Set-Alias alacrittyshell 'nvim "C:\Users\Merci_Bacman\.config\alacritty.yml"'
 # Set-Alias z zoxide
 
 # Utilities
