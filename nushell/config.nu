@@ -691,3 +691,5 @@ def-env workon [venv: string] {
 # External tools
 source ~/.cache\starship\init.nu
 source ~/.zoxide.nu
+
+source C:\Users\Merci_Bacman\AppData\Roaming\dystroy\broot\config\launcher\nushell\br
