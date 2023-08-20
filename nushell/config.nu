@@ -668,6 +668,7 @@ alias rm = rm -t
 alias oc = ouch compress
 alias od = ouch decompress
 alias db = mysql -u root -p
+alias a = overlay use activate.nu
 
 
 def-env take [dir] {
