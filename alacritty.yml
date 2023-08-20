@@ -73,7 +73,7 @@ cursor:
 mouse:
   faux_scrolling_lines: 3
 # Windows
-working_directory: "C:\\"
+working_directory: "D:\\"
 
 # Key bindings
 key_bindings:
