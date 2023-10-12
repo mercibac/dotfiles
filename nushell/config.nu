@@ -653,7 +653,9 @@ $env.config = {
 
 # Set aliases
 # alias lsname = (ls | get name)
+alias mpvl = mpv --loop
 alias vim = nvim
+alias vi = nvim --clean
 alias py = py.exe
 alias c = cls
 alias ls = ^ls --color=auto
@@ -693,4 +695,4 @@ def-env workon [venv: string] {
 source ~/.cache\starship\init.nu
 source ~/.zoxide.nu
 
-source C:\Users\Merci_Bacman\AppData\Roaming\dystroy\broot\config\launcher\nushell\br
+# source C:\Users\Merci_Bacman\AppData\Roaming\dystroy\broot\config\launcher\nushell\br
