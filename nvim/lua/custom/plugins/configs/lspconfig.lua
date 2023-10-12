@@ -3,7 +3,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = {"pyright", "tsserver", "tailwindcss", "html"}
+local servers = {"pyright", "tsserver", "tailwindcss", "html", "lua_ls", "cssls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -32,4 +32,11 @@ lspconfig.gopls.setup{
       }
     }
   }
+}
+
+lspconfig.asm_lsp.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"asm-lsp"},
+  filetypes = { "asm", "nasm", "masm", "vmasm", "s", "S" },
 }

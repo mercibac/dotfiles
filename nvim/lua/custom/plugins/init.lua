@@ -35,6 +35,13 @@ local plugins = {
   },
 
   {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension "frecency"
+    end,
+  },
+
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function ()
@@ -51,7 +58,7 @@ local plugins = {
         dapui.close()
       end
     end
-     
+
   },
 
   {
@@ -60,7 +67,7 @@ local plugins = {
       require("core.utils").load_mappings("dap")
     end,
   },
-  
+
   {
     "mfussenegger/nvim-dap-python",
     ft = "python",
@@ -113,6 +120,17 @@ local plugins = {
   },
 
   {
+    'skywind3000/asynctasks.vim',
+    dependencies = 'skywind3000/asyncrun.vim',
+    keys = {
+      { "<F5>", "<cmd>AsyncTask file-run<cr>", silent=true, desc = "Run File" },
+      { "<F9>", "<cmd>AsyncTask file-build<cr>", silent=true, desc = "Build File" },
+      { "<F6>", "<cmd>AsyncTask project-run<cr>", silent=true, desc = "Run Project" },
+      { "<F7>", "<cmd>AsyncTask project-build<cr>", silent=true, desc = "Build Project" },
+    }
+  },
+
+  {
     "max397574/better-escape.nvim",
       event = "InsertEnter",
       config = function()
@@ -132,18 +150,6 @@ local plugins = {
   },
 
   {
-    "xiyaowong/transparent.nvim",
-
-    keys = {
-      { "<leader>tt", "<cmd>TransparentEnable<cr>", desc = "Transparent" },
-    },
-    cmd = "TransparentEnable",
-
-    config = function () require "custom.plugins.configs.transparent"
-    end
-  },
-
-  {
     'LhKipp/nvim-nu',
     config = function() require'nu'.setup{}
     end
@@ -154,11 +160,11 @@ local plugins = {
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
-    
+
     keys = {
       { "<leader>dm", '<cmd>lua require("dbee").open()<cr>', desc = "Open MySQL Database" },
     },
-    
+
     config = function()
       require("dbee").setup {
         sources = {
@@ -167,14 +173,14 @@ local plugins = {
               name = "MySQL",
               type = "mysql",
               -- Update the root password to null
-              url = "root:@tcp(localhost:3306)/idexdb",
+              url = "root:@tcp(localhost:3306)/mysql",
             },
           }),
       },
     }
     end
   },
-  
+
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
@@ -186,14 +192,19 @@ local plugins = {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    },
     keys = {
       { "<leader>i", "<cmd>Trouble<cr>", desc = "touble" },
     },
+  },
+
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
+    end
   },
 
   {
