@@ -78,3 +78,4 @@ working_directory: "D:\\"
 # Key bindings
 key_bindings:
   - { key: F11, action: ToggleFullscreen }
+  - { key: N,   mods: Control|Shift, action: SpawnNewInstance }
