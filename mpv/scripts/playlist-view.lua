@@ -63,7 +63,7 @@ opts = {
     remember_time_position = true,
 
     start_on_mpv_startup = false,
-    start_on_file_end = true,
+    start_on_file_end = false,
 
     show_text = true,
     show_title = true,
