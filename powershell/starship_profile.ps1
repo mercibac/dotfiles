@@ -15,7 +15,7 @@ Invoke-Expression (& {
 # Functions
 function ls_git { & 'C:\Program Files\Git\usr\bin\ls' --color=auto }
 
-function clean_vim([string]$FileName)
+function vi([string]$FileName)
 {
     nvim --clean "$FileName"
 }
@@ -29,10 +29,15 @@ Set-Alias less "C:\Program Files\Git\usr\bin\less.exe"
 Set-Alias ls ls_git
 Set-Alias cat bat
 Set-Alias alacrittyshell 'nvim "C:\Users\Merci_Bacman\.config\alacritty.yml"'
-# Set-Alias z zoxide
+Set-Alias c cls
 
 # Utilities
 function which ($command) {
   Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+}
+
+function take ($folder) {
+  New-Item -ItemType Directory -Name $folder
+  cd $folder 
 }
