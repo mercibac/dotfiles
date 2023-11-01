@@ -4,13 +4,18 @@ M.general = {
   v = {
     ['<'] = {"<gv"},
     ['>'] = {">gv"},
+    ["<A-j>"] = {":m '>+1<CR>gv=gv"}, -- move line up(v)
+    ["<A-k>"] = {":m '<-2<CR>gv=gv"}, -- move line down(v)
     ["qq"] = {":norm! @q<CR>"},
   },
 
   n = {
     ['<C-a>'] = {'gg<S-v>G'},
-    ['<leader><cr>'] = {'<cmd>qa!<cr>'},
     ['<leader><space>'] = {'<cmd>wqa<cr>'},
+    ['<leader><cr>'] = {'<cmd>qa!<cr>'},
+    ['<leader>0'] = {'<cmd>LspStop<cr>'},
+    ["<A-j>"] = {":m .+1<CR>=="}, -- move line up(n)
+    ["<A-k>"] = {":m .-2<CR>=="}, -- move line down(n)
   }
 }
 
