@@ -122,11 +122,13 @@ local plugins = {
   {
     'skywind3000/asynctasks.vim',
     dependencies = 'skywind3000/asyncrun.vim',
+    cmd = 'AsyncTaskEdit',
     keys = {
+      { "<F4>", "<cmd>AsyncTask project-clean<cr>", silent=true, desc = "Clean Project" },
       { "<F5>", "<cmd>AsyncTask file-run<cr>", silent=true, desc = "Run File" },
-      { "<F9>", "<cmd>AsyncTask file-build<cr>", silent=true, desc = "Build File" },
-      { "<F6>", "<cmd>AsyncTask project-run<cr>", silent=true, desc = "Run Project" },
-      { "<F7>", "<cmd>AsyncTask project-build<cr>", silent=true, desc = "Build Project" },
+      { "<F6>", "<cmd>AsyncTask file-build<cr>", silent=true, desc = "Build File" },
+      { "<F9>", "<cmd>AsyncTask project-run<cr>", silent=true, desc = "Run Project" },
+      { "<F10>", "<cmd>AsyncTask project-build<cr>", silent=true, desc = "Build Project" },
     }
   },
 
@@ -187,6 +189,14 @@ local plugins = {
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      direction = 'float',
+    }
   },
 
   {
