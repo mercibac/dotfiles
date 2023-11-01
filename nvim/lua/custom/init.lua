@@ -22,10 +22,10 @@ vim.opt.tabstop = 4
 -- vim.o.shell = 'cmd'
 
 -- Set nushell as my default terminal
-vim.api.nvim_set_option('shell', 'cmd')
-vim.api.nvim_set_option('shellcmdflag', 'k')
-vim.api.nvim_set_option('shellquote', '')
-vim.api.nvim_set_option('shellxquote', '')
+-- vim.api.nvim_set_option('shell', 'nu')
+-- vim.api.nvim_set_option('shellcmdflag', 'k')
+-- vim.api.nvim_set_option('shellquote', '')
+-- vim.api.nvim_set_option('shellxquote', '')
 
 -- Define a function to set the file type and syntax highlighting for NASM files
 vim.cmd([[
@@ -43,4 +43,9 @@ vim.g.vscode_snippets_path = lpath
 vim.g.luasnippets_path = lpath -- "./my-snippets/"
 
 -- For asyncrun plugin
-vim.g.asyncrun_open = 6
+vim.g.asyncrun_open = 15
+-- vim.g.asynctask_template = 'C:/Users/Merci_Bacman/.config/nvim/task_template.ini'
+vim.g.asynctasks_template = '~/.config/nvim/task_template.ini'
+vim.g.asynctasks_term_pos = 'toggleterm2'
+vim.g.asynctasks_term_close = 1
+-- vim.g.asynctasks_term_pos = 'TAB'
