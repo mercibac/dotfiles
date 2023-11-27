@@ -3,7 +3,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = {"pyright", "tsserver", "tailwindcss", "html", "lua_ls", "cssls"}
+local servers = {"pyright", "tailwindcss", "html", "lua_ls", "cssls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -14,6 +14,15 @@ end
 
 lspconfig.svelte.setup { filetypes = { "svelte" } }
 
+lspconfig.tsserver.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    }
+  }
+}
 
 local util = require "lspconfig/util"
 

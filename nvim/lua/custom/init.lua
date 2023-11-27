@@ -43,7 +43,7 @@ vim.g.vscode_snippets_path = lpath
 vim.g.luasnippets_path = lpath -- "./my-snippets/"
 
 -- For asyncrun plugin
-vim.g.asyncrun_open = 15
+vim.g.asyncrun_open = 6
 -- vim.g.asynctask_template = 'C:/Users/Merci_Bacman/.config/nvim/task_template.ini'
 vim.g.asynctasks_template = '~/.config/nvim/task_template.ini'
 vim.g.asynctasks_term_pos = 'toggleterm2'

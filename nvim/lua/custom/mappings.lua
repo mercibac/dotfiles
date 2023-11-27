@@ -13,6 +13,7 @@ M.general = {
     ['<C-a>'] = {'gg<S-v>G'},
     ['<leader><space>'] = {'<cmd>wqa<cr>'},
     ['<leader><cr>'] = {'<cmd>qa!<cr>'},
+    ['<leader>a'] = {'<cmd>NvimTreeClose<cr>'},
     ['<leader>0'] = {'<cmd>LspStop<cr>'},
     ["<A-j>"] = {":m .+1<CR>=="}, -- move line up(n)
     ["<A-k>"] = {":m .-2<CR>=="}, -- move line down(n)
@@ -29,7 +30,7 @@ M.dap = {
   plugin = true,
   n = {
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <cr>"},
-
+    ["<leader>dr"] = {"<cmd> DapContinue <cr>"},
   }
 }
 

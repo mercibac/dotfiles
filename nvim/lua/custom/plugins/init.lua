@@ -26,9 +26,11 @@ local plugins = {
         "mypy",
         "debugpy",
         "typescript-language-server",
+        "js-debug-adapter",
         "prettier",
         "svelte-language-server",
         "tailwindcss-language-server",
+        "eslint-lsp",
         "gopls",
       },
     },
@@ -63,38 +65,24 @@ local plugins = {
 
   {
     "mfussenegger/nvim-dap",
-    config = function (_, opts)
+    config = function (_)
       require("core.utils").load_mappings("dap")
+      require "custom.plugins.configs.dap"
     end,
   },
 
   {
     "mfussenegger/nvim-dap-python",
-    ft = "python",
+    ft = {"python", "javascript"},
     dependencies = {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    config = function (_, opts)
+    config = function (_)
       local path = "D:/VE/debugpy/Scripts/python"
       require("dap-python").setup(path)
       require("core.utils").load_mappings("dap_python")
     end,
-  },
-
-  { "CRAG666/code_runner.nvim",
-    keys = {
-      {
-        "<leader>a",
-        function()
-          require("code_runner").run_code()
-        end,
-        desc = "Execute Code",
-        },
-      },
-     config = function()
-        require "custom.plugins.configs.coderunner" -- Load our custom configuration for lspconfig
-     end,
   },
 
   {
@@ -104,6 +92,10 @@ local plugins = {
         -- defaults and tools 
         "lua",
         "sql",
+
+        -- software development
+        "rust",
+        "pascal",
 
         -- web dev 
         "python",
@@ -120,6 +112,15 @@ local plugins = {
   },
 
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = "VeryLazy",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require "custom.plugins.configs.nvim-treesitter-textobjects" -- Load our custom configuration for lspconfig
+    end
+  },
+
+  {
     'skywind3000/asynctasks.vim',
     dependencies = 'skywind3000/asyncrun.vim',
     cmd = 'AsyncTaskEdit',
@@ -127,6 +128,8 @@ local plugins = {
       { "<F4>", "<cmd>AsyncTask project-clean<cr>", silent=true, desc = "Clean Project" },
       { "<F5>", "<cmd>AsyncTask file-run<cr>", silent=true, desc = "Run File" },
       { "<F6>", "<cmd>AsyncTask file-build<cr>", silent=true, desc = "Build File" },
+      { "<F7>", "<cmd>AsyncTask file-test<cr>", silent=true, desc = "Test File" },
+      { "<F8>", "<cmd>AsyncTask project-test<cr>", silent=true, desc = "Project File" },
       { "<F9>", "<cmd>AsyncTask project-run<cr>", silent=true, desc = "Run Project" },
       { "<F10>", "<cmd>AsyncTask project-build<cr>", silent=true, desc = "Build Project" },
     }
@@ -149,6 +152,14 @@ local plugins = {
               -- Configuration here, or leave empty to use defaults
           })
       end
+  },
+
+  {
+      "mg979/vim-visual-multi",
+      event = "VeryLazy",
+      -- config = function()
+      --   require("vim-visual-multi").setup()
+      -- end
   },
 
   {
@@ -195,7 +206,7 @@ local plugins = {
     "akinsho/toggleterm.nvim",
     version = "*",
     opts = {
-      direction = 'float',
+      direction = 'horizontal',
     }
   },
 
@@ -203,7 +214,7 @@ local plugins = {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-      { "<leader>i", "<cmd>Trouble<cr>", desc = "touble" },
+      { "<leader>i", "<cmd>Trouble<cr>", desc = "trouble" },
     },
   },
 
@@ -221,9 +232,9 @@ local plugins = {
     "Pocco81/true-zen.nvim",
     -- lazy = false,
     keys = {
-      { "<leader>zf", "<cmd>tzfocus<cr>", desc = "focus" },
-      { "<leader>zm", "<cmd>tzminimalist<cr>", desc = "minimalist" },
-      { "<leader>za", "<cmd>tzataraxis<cr>", desc = "ataraxis" },
+      { "<leader>zf", "<cmd>TZFocus<cr>", desc = "focus" },
+      { "<leader>zm", "<cmd>TZMinimalist<cr>", desc = "minimalist" },
+      { "<leader>za", "<cmd>TZAtaraxis<cr>", desc = "ataraxis" },
     },
     -- ft = "nu",
     config = function () require("true-zen")
