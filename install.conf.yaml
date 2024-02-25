@@ -3,10 +3,10 @@
       create: true
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-    ~/.dotfiles: ''
+    ~/.dotfiles: ""
     ~/.config/mpv:
     ~/.config/nvim:
     ~/AppData/Roaming/nushell/config.nu: nushell/config.nu
@@ -16,9 +16,10 @@
     ~/.config/starship.toml: starship/starship.toml
     ~/.config/powershell:
     ~/.config/alacritty.yml:
+    ~/.config/alacritty.toml:
     ~/.config/whkdrc:
 
 - shell:
-  - git submodule sync --recursive
-   # the following have to run after linking ~/.gitconfig
-  - git submodule update
+    - git submodule sync --recursive
+      # the following have to run after linking ~/.gitconfig
+    - git submodule update

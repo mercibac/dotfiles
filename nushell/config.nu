@@ -786,6 +786,9 @@ alias pipcomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe -m pip
 alias mc = magick convert
 alias e = exit
 
+# Docker
+alias ollama_ui = docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+
 def --env take [path] {
     mkdir $path | cd $path
 }
@@ -804,7 +807,9 @@ def --env workon [venv: string] {
     cd $path
 }
 
+$env.EDITOR = nvim
 
 # External tools
 source ~/.cache\starship\init.nu
 source ~/.zoxide.nu
+source ~/.config/scoop.nu

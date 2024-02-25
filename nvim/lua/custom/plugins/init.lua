@@ -113,7 +113,8 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
       require "custom.plugins.configs.nvim-treesitter-textobjects" -- Load our custom configuration for lspconfig
@@ -240,6 +241,7 @@ local plugins = {
     config = function () require("true-zen")
     end
   }
+
 }
 
 return plugins
