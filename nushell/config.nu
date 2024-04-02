@@ -765,6 +765,7 @@ $env.config = {
 # alias lsname = (ls | get name)
 alias mpvl = mpv --loop
 alias vim = nvim
+alias v = nvim
 alias vi = nvim --clean
 alias py = py.exe
 alias c = cls
@@ -785,6 +786,7 @@ alias pycomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe
 alias pipcomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe -m pip
 alias mc = magick convert
 alias e = exit
+alias pos = poetry shell; cls
 
 # Docker
 alias ollama_ui = docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
@@ -813,3 +815,6 @@ $env.EDITOR = nvim
 source ~/.cache\starship\init.nu
 source ~/.zoxide.nu
 source ~/.config/scoop.nu
+source ~/.config/nushell/scoop-completions.nu
+source ~/.config/nushell/poetry-completions.nu
+source ~/.config/nushell/sfsu_.nu

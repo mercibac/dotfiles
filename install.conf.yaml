@@ -11,6 +11,7 @@
     ~/.config/nvim:
     ~/AppData/Roaming/nushell/config.nu: nushell/config.nu
     ~/AppData/Roaming/nushell/env.nu: nushell/env.nu
+    ~/.config/nushell/sfsu_.nu: nushell/sfsu_.nu
     ~/.cache/starship/init.nu: starship/init.nu
     ~/.bashrc: bashrc
     ~/.config/starship.toml: starship/starship.toml

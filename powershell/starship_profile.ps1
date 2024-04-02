@@ -1,6 +1,8 @@
 
 Invoke-Expression (&starship init powershell)
 
+Invoke-Expression (&sfsu hook)
+
 Invoke-Expression (& {
 
 
