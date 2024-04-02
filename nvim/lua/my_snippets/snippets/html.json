@@ -1,0 +1,30 @@
+{
+  "shtml": {
+    "prefix": "shtml",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"$1en\"",
+      "\twindow-blurbehind=\"light\"",
+      "\twindow-resizable=\"true\"",
+      "\twindow-frame=\"extended\"",
+      "\twindow-icon=\"extra/icon.svg\"",
+      "\twindow-width=\"$2dip\"",
+      "\twindow-height=\"$3dip\"",
+      "\ttheme=\"light\">",
+      "\t<head>",
+      "\t\t<title>$4</title>",
+      "\t\t<meta charset=\"UTF-8\">",
+      "\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+      "\t\t<link href=\"$5style.css\" rel=\"stylesheet\">",
+      "\t\t<link src=\"script.js\" defer></script>",
+      "\t</head>",
+      "\t<include src=\"extra/window-decoration.html\" media=\"sciter\" />",
+      "\t<body>",
+      "\t$0",
+      "\t</body>",
+      "</html>"
+    ],
+    "description": "HTML - Defines a sciter template for a html5 document",
+    "scope": "text.html"
+  }
+}
