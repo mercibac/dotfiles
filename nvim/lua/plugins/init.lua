@@ -20,7 +20,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "basedpyright",
+        "pyright",
         "ruff",
         "black",
         "mypy",
