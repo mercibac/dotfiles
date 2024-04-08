@@ -1,6 +1,6 @@
 local plugins = {
   {
-  -- In order to modify the `lspconfig` configuration:
+  -- In order ts modify the `lspconfig` configuration:
     "neovim/nvim-lspconfig",
 
      dependencies = {
@@ -228,6 +228,13 @@ local plugins = {
         color_square_width = 2,
       })
     end
+  },
+
+  {
+    "VonHeikemen/searchbox.nvim",
+    event = "VimEnter",
+    init = function() end,
+    dependencies = "MunifTanjim/nui.nvim",
   },
 
   {

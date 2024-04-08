@@ -27,3 +27,8 @@ map("n", "<leader>dr", "<cmd> DapContinue <cr>")
 map("n", "<leader>dpr", function ()
     require("dap-python").test_method()
 end)
+
+-- UI improvement plugins
+map("n", "<leader>ss", ":SearchBoxIncSearch<CR>")
+map("n", "<leader>sr", ":SearchBoxReplace<CR>")
+map("n", "<leader>sc", ":SearchBoxReplace confirm=menu<CR>")
