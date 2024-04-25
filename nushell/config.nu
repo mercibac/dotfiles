@@ -815,6 +815,6 @@ $env.EDITOR = nvim
 source ~/.cache\starship\init.nu
 source ~/.zoxide.nu
 source ~/.config/scoop.nu
-source ~/.config/nushell/scoop-completions.nu
+# source ~/.config/nushell/scoop-completions.nu
 source ~/.config/nushell/poetry-completions.nu
 source ~/.config/nushell/sfsu_.nu
