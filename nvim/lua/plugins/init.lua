@@ -43,48 +43,46 @@ local plugins = {
     end,
   },
 
-  -- {
-  --   "rcarriga/nvim-dap-ui",
-  --   dependencies = "mfussenegger/nvim-dap",
-  --   config = function ()
-  --     local dap = require("dap")
-  --     local dapui = require("dapui")
-  --     dapui.setup()
-  --     dap.listeners.after.event_initialized["dapui_config"] = function()
-  --       dapui.open()
-  --     end
-  --     dap.listeners.before.event_terminated["dapui_config"] = function()
-  --       dapui.close()
-  --     end
-  --     dap.listeners.before.event_exited["dapui_config"] = function()
-  --       dapui.close()
-  --     end
-  --   end
-  --
-  -- },
+  {
+    "mfussenegger/nvim-dap",
+    config = function (_)
+      require "configs.dap"
+    end,
+  },
 
-  -- {
-  --   "mfussenegger/nvim-dap",
-  --   config = function (_)
-  --     require("core.utils").load_mappings("dap")
-  --     require "nvchad.configs.dap"
-  --   end,
-  -- },
-  --
-  -- {
-  --   "mfussenegger/nvim-dap-python",
-  --   ft = {"python", "javascript"},
-  --   dependencies = {
-  --     "mfussenegger/nvim-dap",
-  --     "rcarriga/nvim-dap-ui",
-  --     "nvim-neotest/nvim-nio",
-  --   },
-  --   config = function (_)
-  --     local path = "D:/VE/debugpy/Scripts/python"
-  --     require("dap-python").setup(path)
-  --     require("core.utils").load_mappings("dap_python")
-  --   end,
-  -- },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function ()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end
+
+  },
+
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = {"python", "javascript"},
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function (_)
+      local path = "D:/VE/Nvim/Scripts/pythonw.exe"
+      require("dap-python").setup(path)
+    end,
+  },
 
   {
     "nvim-treesitter/nvim-treesitter",
@@ -135,6 +133,21 @@ local plugins = {
       { "<F9>", "<cmd>AsyncTask project-run<cr>", silent=true, desc = "Run Project" },
       { "<F10>", "<cmd>AsyncTask project-build<cr>", silent=true, desc = "Build Project" },
     }
+  },
+
+  {
+    "nvim-neotest/neotest",
+    ft = { "go", "javascript", "typescript", "javascriptreact", "typescriptreact", "python" },
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-neotest/neotest-python",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    },
+    config = function()
+      require "configs.neotest"
+    end,
   },
 
   {

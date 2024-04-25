@@ -21,12 +21,19 @@ map("n", "<A-k>", ":m .-2<CR>==") -- move line down(n)
 map("n", "<leader>gg", "<Cmd>Telescope frecency<CR>")
 
 -- DAP plugin
-map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>")
-map("n", "<leader>dr", "<cmd> DapContinue <cr>")
+map("n", "<leader>db", "<cmd>DapToggleBreakpoint <cr>")
+map("n", "<leader>dr", "<cmd>DapContinue <cr>")
 
 map("n", "<leader>dpr", function ()
     require("dap-python").test_method()
 end)
+
+-- Neotest
+-- map("n", "<leader>tt", "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>")
+map("n", "<leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")  --run all test in the file
+map("n", "<leader>ts", "<Cmd>lua require('neotest').run.stop()<CR>")  --run all test in the file
+map("n", "<leader>tv", "<Cmd>lua require('neotest').summary.toggle()<CR>")  --run all test in the file
+
 
 -- UI improvement plugins
 map("n", "<leader>ss", ":SearchBoxIncSearch<CR>")
