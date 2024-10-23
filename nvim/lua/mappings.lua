@@ -1,7 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-
+local harpoon = require("harpoon")
 
 map("v", "<", "<gv")
 map("v", ">", ">gv")
@@ -39,3 +39,17 @@ map("n", "<leader>tv", "<Cmd>lua require('neotest').summary.toggle()<CR>")  --ru
 map("n", "<leader>ss", ":SearchBoxIncSearch<CR>")
 map("n", "<leader>sr", ":SearchBoxReplace<CR>")
 map("n", "<leader>sc", ":SearchBoxReplace confirm=menu<CR>")
+
+-- Harpoon
+
+map("n", "<leader>Ha", function() harpoon:list():add() end)
+map("n", "<leader>He", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+--
+-- map("n", "<C-h>", function() harpoon:list():select(1) end)
+-- map("n", "<C-t>", function() harpoon:list():select(2) end)
+-- map("n", "<C-n>", function() harpoon:list():select(3) end)
+-- map("n", "<C-s>", function() harpoon:list():select(4) end)
+--
+-- -- Toggle previous & next buffers stored within Harpoon list
+-- map("n", "<C-S-P>", function() harpoon:list():prev() end)
+-- map("n", "<C-S-N>", function() harpoon:list():next() end)
