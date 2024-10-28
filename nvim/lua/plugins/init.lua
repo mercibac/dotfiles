@@ -5,7 +5,7 @@ local plugins = {
 
      dependencies = {
        "jose-elias-alvarez/null-ls.nvim",
-       config = function()
+      config = function()
          require "configs.null-ls"
        end,
      },
@@ -26,6 +26,7 @@ local plugins = {
         "mypy",
         "debugpy",
         "lua-language-server",
+        "stylelua",
         "typescript-language-server",
         "js-debug-adapter",
         "prettier",
@@ -75,7 +76,7 @@ local plugins = {
     ft = {"python", "javascript"},
     dependencies = {
       "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
+       "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
     },
     config = function (_)
@@ -93,7 +94,7 @@ local plugins = {
         "sql",
 
         -- software development
-        "rust",
+        -- "rust",
         "pascal",
 
         -- web dev 
@@ -108,15 +109,33 @@ local plugins = {
 
       },
     },
+    dependencies = {
+        -- NOTE: additional parser
+        { "nushell/tree-sitter-nu" },
+    },
+    build = ":TSUpdate",
   },
 
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    -- event = "VeryLazy",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
       require "configs.nvim-treesitter-textobjects" -- Load our custom configuration for lspconfig
+    end
+  },
+
+  {
+    'kevinhwang91/nvim-ufo',
+    -- event = { "BufReadPre", "BufNewFile" }, - Will get an ufo.end error
+    event = "UIEnter", -- needed for folds to load in time and comments being closed
+    dependencies = { 'kevinhwang91/promise-async' },
+    opts = {
+      filetype_exclude = { 'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble', 'lazy', 'mason' },
+    },
+
+    config = function()
+      require "configs.nvim-ufo" -- Load our custom configuration for lspconfig
     end
   },
 
@@ -172,13 +191,11 @@ local plugins = {
   {
       "mg979/vim-visual-multi",
       event = "VeryLazy",
-      -- config = function()
-      --   require("vim-visual-multi").setup()
-      -- end
   },
 
   {
     'LhKipp/nvim-nu',
+    ft = "nu",
     config = function() require'nu'.setup{}
     end
   },
@@ -234,6 +251,25 @@ local plugins = {
   },
 
   {
+    "rbong/vim-flog",
+    lazy = true,
+    cmd = { "Flog", "Flogsplit", "Floggit" },
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
+  },
+
+  {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      event = { "BufReadPost", "BufNewFile" },
+      config = function()
+        require("harpoon").setup()
+      end,
+  },
+
+  {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     -- optionally, override the default options:
     config = function()
@@ -251,6 +287,46 @@ local plugins = {
   },
 
   {
+    "FeiyouG/commander.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    commander = {
+      {
+        desc = "Open Commander",
+        cmd = function() require("commander").show() end,
+        keys = {
+          { "n", "<leader>f" },
+          { "n", "<leader>fc" },
+        },
+      }
+    },
+    opts = {
+      components = {
+        "DESC",
+        "KEYS",
+        "CAT",
+      },
+      sort_by = {
+        "DESC",
+        "KEYS",
+        "CAT",
+        "CMD"
+      },
+
+      integration = {
+        telescope = {
+          enable = true,
+        },
+        lazy = {
+          enable = true,
+          set_plugin_name_as_cat = true
+        }
+      }
+    }
+  },
+
+  {
     "ray-x/lsp_signature.nvim",
     event = "LspAttach",
     config = function()
@@ -259,14 +335,19 @@ local plugins = {
   },
 
   {
+    "luckasRanarison/clear-action.nvim",
+    config = function()
+      require("clear-action").setup({})
+    end
+  },
+
+  {
     "Pocco81/true-zen.nvim",
-    -- lazy = false,
     keys = {
       { "<leader>zf", "<cmd>TZFocus<cr>", desc = "focus" },
       { "<leader>zm", "<cmd>TZMinimalist<cr>", desc = "minimalist" },
       { "<leader>za", "<cmd>TZAtaraxis<cr>", desc = "ataraxis" },
     },
-    -- ft = "nu",
     config = function () require("true-zen")
     end
   },
