@@ -9,7 +9,7 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- Disable ufo for some buffers
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { 'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble', 'lazy', 'mason' },
+  pattern = { 'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble', 'lazy', 'mason', 'terminal' },
   callback = function()
     require("ufo").detach()
     vim.opt_local.foldenable = false
@@ -22,15 +22,23 @@ vim.api.nvim_create_augroup("remember_folds", { clear = true })
 -- Create autocmd for saving folds when leaving a buffer
 vim.api.nvim_create_autocmd("BufWinLeave", {
   group = "remember_folds",
-  pattern = "*",
-  command = "mkview 1"
+  pattern = "?*",
+  callback = function()
+    if vim.bo.buftype ~= "terminal" then
+      vim.cmd("mkview")
+    end
+  end,
 })
 
 -- Create autocmd for loading folds when entering a buffer
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = "remember_folds",
-  pattern = "*",
-  command = "silent! loadview 1"
+  pattern = "?*",
+  callback = function()
+    if vim.bo.buftype ~= "terminal" then
+      vim.cmd("silent! loadview")
+    end
+  end,
 })
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
