@@ -92,17 +92,36 @@ local plugins = {
         -- defaults and tools 
         "lua",
         "sql",
+        "nu",
+        "bash",
+        "vim",
+        "vimdoc",
+        "luadoc",
+        "yaml",
+        "toml",
+        "xml",
+        "diff",
+        "gitignore",
+        "gitcommit",
+        "git_config",
+        "git_rebase",
+        "gitattributes",
 
-        -- software development
-        -- "rust",
+        -- software development and DevOps
+        "rust",
         "pascal",
+        "dockerfile",
 
-        -- web dev 
+        -- web dev and markup 
         "python",
         "html",
         "css",
         "javascript",
+        "typescript",
+        "tsx",
         "json",
+        "latex",
+        "markdown_inline",
 
         --frameworks
         "svelte",
@@ -244,10 +263,11 @@ local plugins = {
 
   {
     "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = "Trouble",
     keys = {
       { "<leader>i", "<cmd>Trouble<cr>", desc = "trouble" },
     },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   {
@@ -280,6 +300,41 @@ local plugins = {
   },
 
   {
+      'MeanderingProgrammer/render-markdown.nvim',
+      ft = "markdown",
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+      ---@module 'render-markdown'
+---@diagnostic disable-next-line: undefined-doc-name
+      ---@type render.md.UserConfig
+      keys = {
+        {
+          "<leader>oc",
+          function() require("render-markdown").toggle() end,
+          ft = "markdown",
+          desc = " Markdown Render",
+        },
+      },
+      opts = {
+        render_modes = { "n", "c", "i", "v", "V" },
+        bullet = {
+          icons = { "▪️", "▫️", "•", "◦" },
+        },
+        heading = {
+          icons = {}, -- disables icons
+        },
+        code = {
+          border = "thick",
+          position = "left",
+        },
+        sign = { enabled = false },
+        win_options = {
+          -- toggling this plugin should also toggle conceallevel
+          conceallevel = { default = 0, rendered = 3 },
+        },
+      },
+  },
+
+  {
     "VonHeikemen/searchbox.nvim",
     event = "VimEnter",
     init = function() end,
@@ -288,6 +343,7 @@ local plugins = {
 
   {
     "FeiyouG/commander.nvim",
+    event = "UIEnter",
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
@@ -296,7 +352,6 @@ local plugins = {
         desc = "Open Commander",
         cmd = function() require("commander").show() end,
         keys = {
-          { "n", "<leader>f" },
           { "n", "<leader>fc" },
         },
       }
@@ -332,6 +387,27 @@ local plugins = {
     config = function()
       require("lsp_signature").setup()
     end,
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+        "LazyGit",
+        "LazyGitConfig",
+        "LazyGitCurrentFile",
+        "LazyGitFilter",
+        "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+        { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
   },
 
   {
