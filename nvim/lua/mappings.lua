@@ -2,6 +2,8 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local harpoon = require("harpoon")
+local ufo = require("ufo")
+
 
 map("v", "<", "<gv")
 map("v", ">", ">gv")
@@ -44,12 +46,9 @@ map("n", "<leader>sc", ":SearchBoxReplace confirm=menu<CR>")
 
 map("n", "<leader>Ha", function() harpoon:list():add() end)
 map("n", "<leader>He", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
---
--- map("n", "<C-h>", function() harpoon:list():select(1) end)
--- map("n", "<C-t>", function() harpoon:list():select(2) end)
--- map("n", "<C-n>", function() harpoon:list():select(3) end)
--- map("n", "<C-s>", function() harpoon:list():select(4) end)
---
--- -- Toggle previous & next buffers stored within Harpoon list
--- map("n", "<C-S-P>", function() harpoon:list():prev() end)
--- map("n", "<C-S-N>", function() harpoon:list():next() end)
+
+--  nvim-ufo plugin
+map("n", "z1", function() ufo.closeFoldsWith(1) end, {desc = "󱃄 Close L1 Folds"} )
+map("n", "z2", function() ufo.closeFoldsWith(2) end, {desc = "󱃄 Close L2 Folds"} )
+map("n", "z3", function() ufo.closeFoldsWith(3) end, {desc = "󱃄 Close L3 Folds"} )
+map("n", "z4", function() ufo.closeFoldsWith(3) end, {desc = "󱃄 Close L4 Folds"} )
