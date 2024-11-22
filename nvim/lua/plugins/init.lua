@@ -411,6 +411,12 @@ local plugins = {
   },
 
   {
+    "rmagatti/goto-preview",
+    event = "BufEnter",
+    config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
+  },
+
+  {
     "luckasRanarison/clear-action.nvim",
     config = function()
       require("clear-action").setup({})

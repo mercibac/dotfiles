@@ -52,3 +52,12 @@ map("n", "z1", function() ufo.closeFoldsWith(1) end, {desc = "󱃄 Close L1 Fold
 map("n", "z2", function() ufo.closeFoldsWith(2) end, {desc = "󱃄 Close L2 Folds"} )
 map("n", "z3", function() ufo.closeFoldsWith(3) end, {desc = "󱃄 Close L3 Folds"} )
 map("n", "z4", function() ufo.closeFoldsWith(3) end, {desc = "󱃄 Close L4 Folds"} )
+
+
+--got-to-preview
+map("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+map("n", "gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
+map("n", "gpi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+map("n", "gpD", "<cmd>lua require('goto-preview').goto_preview_declaration()<CR>")
+map("n", "gP", "<cmd>lua require('goto-preview').close_all_win()<CR>")
+map("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>")
