@@ -125,6 +125,7 @@ local plugins = {
 
         --frameworks
         "svelte",
+        "beancount",
 
       },
     },
@@ -280,16 +281,6 @@ local plugins = {
   },
 
   {
-      "ThePrimeagen/harpoon",
-      branch = "harpoon2",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      event = { "BufReadPost", "BufNewFile" },
-      config = function()
-        require("harpoon").setup()
-      end,
-  },
-
-  {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     -- optionally, override the default options:
     config = function()
@@ -431,6 +422,29 @@ local plugins = {
       { "<leader>za", "<cmd>TZAtaraxis<cr>", desc = "ataraxis" },
     },
     config = function () require("true-zen")
+    end
+  },
+
+  --AI capabilities
+  {
+    'olimorris/codecompanion.nvim',
+    event = "BufReadPre",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-lua/plenary.nvim',
+      {
+        'stevearc/dressing.nvim', -- Optional: Improves the default Neovim UI
+        opts = {},
+      },
+    },
+    cmd = {
+      'CodeCompanion',
+      'CodeCompanionChat',
+      'CodeCompanionToggle',
+      'CodeCompanionActions',
+    },
+    config = function()
+      require "configs.codecompanion" -- Load our custom configuration for lspconfig
     end
   },
 }

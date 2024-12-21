@@ -43,6 +43,9 @@ config.front_end = "OpenGL"
 config.display_pixel_geometry="RGB"
 config.warn_about_missing_glyphs=false
 
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
+
 	-- performance
 config.max_fps = 120
 config.animation_fps = 0

@@ -1,3 +1,4 @@
+-- require('null-ls').register(require('null-ls-bean-check'))
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require('null-ls')
 
@@ -25,20 +26,6 @@ local sources = {
 
   })
 }
-
--- Avoiding LSP formatting conflicts
--- local lsp_formatting = function(bufnr)
---     vim.lsp.buf.format({
---         filter = function(client)
---             -- apply whatever logic you want (in this example, we'll only use null-ls)
---             return client.name == "null-ls"
---         end,
---         bufnr = bufnr,
---     })
--- end
-
-
--- Set sources and format on save
 
 -- formatting on file save
 
