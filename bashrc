@@ -7,6 +7,10 @@ alias ll='ls -l'
 alias z='zoxide'
 alias cls='clear'
 alias c='clear'
+alias v='nvim'
+alias vim='nvim'
+alias vi='vim'
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+eval "$(direnv hook bash)"
