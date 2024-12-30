@@ -38,6 +38,20 @@ local plugins = {
   },
 
   {
+      "nvim-telescope/telescope.nvim",
+      dependencies = {"jvgrootveld/telescope-zoxide", 'nvim-lua/popup.nvim'},
+
+      opts = {
+        extensions_list = {"themes", "terms", "zoxide"},
+        extensions = {
+          zoxide = {
+            prompt_title = "[ Walking on the shoulders of TJ ]",
+          },
+        },
+      },
+  },
+
+  {
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
       require("telescope").load_extension "frecency"
@@ -257,27 +271,27 @@ local plugins = {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    opts = {
-      direction = 'horizontal',
-    }
+    cmd = "ToggleTerm",
+    config = function()
+      require("toggleterm").setup{
+        direction = 'horizontal',
+        shell = "nu.exe"
+      }
+    end,
   },
 
   {
     "folke/trouble.nvim",
+    event = "BufEnter",
     cmd = "Trouble",
+    config = function()
+      require("trouble").setup{
+      }
+    end,
     keys = {
-      { "<leader>i", "<cmd>Trouble<cr>", desc = "trouble" },
+      { "<leader>i", "<cmd>Trouble diagnostics toggle<cr>", desc = "trouble" },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-
-  {
-    "rbong/vim-flog",
-    lazy = true,
-    cmd = { "Flog", "Flogsplit", "Floggit" },
-    dependencies = {
-      "tpope/vim-fugitive",
-    },
   },
 
   {

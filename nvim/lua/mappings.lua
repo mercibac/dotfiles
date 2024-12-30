@@ -22,9 +22,19 @@ map("n", "<leader><space>", "<cmd>wqa<cr>")
 map("n", "<leader><cr>", "<cmd>qa!<cr>")
 map("n", "<leader>a", "<cmd>NvimTreeClose<cr>")
 map("n", "<leader>0", "<cmd>LspStop<cr>")
+map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 
 -- Telescope plugin
 map("n", "<leader>gg", "<Cmd>Telescope frecency<CR>")
+map("n", "<leader>gj", "<Cmd>Telescope zoxide list<CR>")
+map({ "n", "t" }, "<A-i>", function()
+    require("nvchad.term").toggle { pos = "float", id = "floatTerm", float_opts={
+        row = 0.35,
+        col = 0.05,
+        width = 0.9,
+        height = 0.9
+    }}
+end, { desc = "terminal toggle floating term" })
 
 -- DAP plugin
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint <cr>")
