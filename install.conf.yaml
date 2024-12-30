@@ -19,7 +19,7 @@
     ~/.wezterm.lua: wezterm.lua
     ~/.config/starship.toml: starship/starship.toml
     ~/.config/powershell:
-    ~/.config/alacritty.toml:
+    ~/AppData/Roaming/alacritty/alacritty.toml:
     ~/.config/whkdrc:
 
 - shell:
