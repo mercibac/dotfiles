@@ -30,10 +30,15 @@ Set-Alias tig "C:\Program Files\Git\usr\bin\tig.exe"
 Set-Alias less "C:\Program Files\Git\usr\bin\less.exe"
 Set-Alias ls ls_git
 Set-Alias cat bat
-Set-Alias alacrittyshell 'nvim "C:\Users\Merci_Bacman\.config\alacritty.yml"'
+Set-Alias alconfig 'nvim "C:\Users\Merci_Bacman\.config\alacritty.toml"'
 Set-Alias c cls
+Set-Alias v nvim
 
 # Utilities
+function e {
+    exit
+}
+
 function which ($command) {
   Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
