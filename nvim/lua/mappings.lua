@@ -20,7 +20,6 @@ map("v", "qq", ":norm! @q<CR>")
 map("n", "<C-a>", "gg<S-v>G")
 map("n", "<leader><space>", "<cmd>wqa<cr>")
 map("n", "<leader><cr>", "<cmd>qa!<cr>")
-map("n", "<leader>a", "<cmd>NvimTreeClose<cr>")
 map("n", "<leader>0", "<cmd>LspStop<cr>")
 map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 
