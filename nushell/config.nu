@@ -142,6 +142,7 @@ let light_theme = {
 # }
 
 # The default config record. This is where much of your global configuration is setup.
+$env.EDITOR = "nvim"
 $env.config = {
     show_banner: false # true or false to enable or disable the welcome banner at startup
 
@@ -214,11 +215,6 @@ $env.config = {
         }
     }
 
-    filesize: {
-        metric: false # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-        format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
-    }
-
     cursor_shape: {
         emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
         vi_insert: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
@@ -226,14 +222,41 @@ $env.config = {
     }
 
     color_config: $dark_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
-    use_grid_icons: true
-    footer_mode: "25" # always, never, number_of_rows, auto
+    # use_grid_icons: true
+    footer_mode: 25 # always, never, number_of_rows, auto
     float_precision: 2 # the precision for displaying floats in tables
     buffer_editor: "" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
     use_ansi_coloring: true
     bracketed_paste: true # enable bracketed paste, currently useless on windows
     edit_mode: emacs # emacs, vi
-    shell_integration: false # enables terminal shell integration. Off by default, as some terminals have issues with this.
+    shell_integration: {
+      # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title
+      osc2: true
+      # osc7 is a way to communicate the path to the terminal, this is helpful for spawning new tabs in the same directory
+      osc7: true
+      # osc8 is also implemented as the deprecated setting ls.show_clickable_links, it shows clickable links in ls output if your terminal supports it
+      osc8: true
+      # osc9_9 is from ConEmu and is starting to get wider support. It's similar to osc7 in that it communicates the path to the terminal
+      osc9_9: false
+      # osc133 is several escapes invented by Final Term which include the supported ones below.
+      # 133;A - Mark prompt start
+      # 133;B - Mark prompt end
+      # 133;C - Mark pre-execution
+      # 133;D;exit - Mark execution finished with exit code
+      # This is used to enable terminals to know where the prompt is, the command is, where the command finishes, and where the output of the command is
+      osc133: false
+      # osc633 is closely related to osc133 but only exists in visual studio code (vscode) and supports their shell integration features
+      # 633;A - Mark prompt start
+      # 633;B - Mark prompt end
+      # 633;C - Mark pre-execution
+      # 633;D;exit - Mark execution finished with exit code
+      # 633;E - NOT IMPLEMENTED - Explicitly set the command line with an optional nonce
+      # 633;P;Cwd=<path> - Mark the current working directory and communicate it to the terminal
+      # and also helps with the run recent menu in vscode
+      osc633: true
+      # reset_application_mode is escape \x1b[?1l and was added to help ssh work better
+      reset_application_mode: true
+    }
     render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
     use_kitty_protocol: false # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.
     highlight_resolved_externals: false # true enables highlighting of external commands in the repl resolved by which.
@@ -762,11 +785,10 @@ $env.config = {
 }
 
 # Set aliases
-# alias lsname = (ls | get name)
 alias mpvl = mpv --loop
-alias vim = nvim
-alias v = nvim
-alias vi = nvim --clean
+alias vim = ^nvim
+alias v = ^nvim
+alias vi = ^nvim --clean
 alias py = py.exe
 alias c = cls
 alias ls = ^ls --color=auto
@@ -775,7 +797,6 @@ alias ko = komorebic start -c ($env.USERPROFILE | path join komorebi.json) --whk
 alias ks = komorebic stop
 alias alacritty-shell = vim ~\.config\alacritty.yml
 alias serve = python -m http.server
-# alias workon = activate-python-env
 alias cat = bat
 alias rm = rm -t
 alias oc = ouch compress
@@ -787,8 +808,6 @@ alias pipcomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe -m pip
 alias mc = magick convert
 alias e = exit
 alias pos = poetry shell; cls
-
-# Docker
 alias ollama_ui = docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 
 def --env take [path] {
@@ -808,8 +827,6 @@ def --env workon [venv: string] {
     let path = $'(echo $env.WORKON_HOME | path join $venv | path join Scripts)'
     cd $path
 }
-
-$env.EDITOR = nvim
 
 # External tools
 source ~/.cache\starship\init.nu
