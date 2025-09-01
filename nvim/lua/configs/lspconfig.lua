@@ -6,7 +6,7 @@ local on_init = configs.on_init
 local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
-local servers = {"pyright","tailwindcss", "html", "lua_ls", "cssls", "tsserver"}
+local servers = {"pyright", "html", "lua_ls", "cssls", "tsserver"}
 
 for _, lsp in ipairs(servers) do
     if lsp == "tsserver" then
@@ -20,7 +20,21 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.svelte.setup { filetypes = { "svelte" } }
-
+lspconfig.tailwindcss.setup{
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          'tw([^"])',
+          'tw="([^"])',
+          'tw={"([^"}])',
+          'tw\\.\\w+([^"])',
+          'tw\\(.?\\)([^"])',
+        },
+      },
+    },
+  },
+}
 lspconfig.asm_lsp.setup{
   on_attach = on_attach,
   capabilities = capabilities,
