@@ -10,6 +10,7 @@ alias c='clear'
 alias v='nvim'
 alias vim='nvim'
 alias vi='vim'
+alias e='exit'
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
