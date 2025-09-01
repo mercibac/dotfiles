@@ -16,7 +16,7 @@
     ~/.config/nushell/sfsu_.nu: nushell/sfsu_.nu
     ~/.cache/starship/init.nu: starship/init.nu
     ~/.bashrc: bashrc
-    ~/.config/wezterm:
+    ~/.config/wezterm/wezterm.lua:
     ~/.config/starship.toml: starship/starship.toml
     ~/.config/powershell:
     ~/AppData/Roaming/alacritty/alacritty.toml:
