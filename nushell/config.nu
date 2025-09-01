@@ -791,8 +791,8 @@ alias v = ^nvim
 alias vi = ^nvim --clean
 alias py = py.exe
 alias c = cls
-alias ls = ^ls --color=auto
-alias ll = ^ls -la --color=auto
+alias ls = exa --color=auto
+alias ll = exa -la --color=auto
 alias ko = komorebic start -c ($env.USERPROFILE | path join komorebi.json) --whkd
 alias ks = komorebic stop
 alias alacritty-shell = vim ~\.config\alacritty.yml
