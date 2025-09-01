@@ -1,18 +1,21 @@
 local plugins = {
   {
-  -- In order ts modify the `lspconfig` configuration:
+    -- In order ts modify the `lspconfig` configuration:
     "neovim/nvim-lspconfig",
 
-     dependencies = {
-       "jose-elias-alvarez/null-ls.nvim",
+    dependencies = {
+      "jay-babu/mason-null-ls.nvim",
+      "nvimtools/none-ls.nvim",
+      "nvimtools/none-ls-extras.nvim",
+      "gbprod/none-ls-shellcheck.nvim",
       config = function()
-         require "configs.null-ls"
-       end,
-     },
+        require "configs.none-ls"
+      end,
+    },
 
     config = function()
-        require("nvchad.configs.lspconfig").defaults()
-        require "configs.lspconfig"
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
     end,
   },
 
@@ -38,17 +41,27 @@ local plugins = {
   },
 
   {
-      "nvim-telescope/telescope.nvim",
-      dependencies = {"jvgrootveld/telescope-zoxide", 'nvim-lua/popup.nvim'},
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "jvgrootveld/telescope-zoxide", "nvim-lua/popup.nvim" },
 
-      opts = {
-        extensions_list = {"themes", "terms", "zoxide"},
-        extensions = {
-          zoxide = {
-            prompt_title = "[ Walking on the shoulders of TJ ]",
-          },
+    opts = {
+      extensions_list = { "themes", "terms", "zoxide" },
+      extensions = {
+        zoxide = {
+          prompt_title = "[ Walking on the shoulders of TJ ]",
         },
       },
+    },
+  },
+
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {},
+    config = function(_)
+      require "configs.conform"
+    end,
   },
 
   {
@@ -60,7 +73,7 @@ local plugins = {
 
   {
     "mfussenegger/nvim-dap",
-    config = function (_)
+    config = function(_)
       require "configs.dap"
     end,
   },
@@ -68,9 +81,10 @@ local plugins = {
   {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
-    config = function ()
-      local dap = require("dap")
-      local dapui = require("dapui")
+    config = function()
+      ---@diagnostic disable-next-line: different-requires
+      local dap = require "dap"
+      local dapui = require "dapui"
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -81,19 +95,18 @@ local plugins = {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-    end
-
+    end,
   },
 
   {
     "mfussenegger/nvim-dap-python",
-    ft = {"python", "javascript"},
+    ft = { "python", "javascript" },
     dependencies = {
       "mfussenegger/nvim-dap",
-       "rcarriga/nvim-dap-ui",
+      "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
     },
-    config = function (_)
+    config = function(_)
       local path = "D:/VE/Nvim/Scripts/pythonw.exe"
       require("dap-python").setup(path)
     end,
@@ -103,7 +116,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults and tools 
+        -- defaults and tools
         "lua",
         "sql",
         "nu",
@@ -126,7 +139,7 @@ local plugins = {
         "pascal",
         "dockerfile",
 
-        -- web dev and markup 
+        -- web dev and markup
         "python",
         "html",
         "css",
@@ -140,12 +153,11 @@ local plugins = {
         --frameworks
         "svelte",
         "beancount",
-
       },
     },
     dependencies = {
-        -- NOTE: additional parser
-        { "nushell/tree-sitter-nu" },
+      -- NOTE: additional parser
+      { "nushell/tree-sitter-nu" },
     },
     build = ":TSUpdate",
   },
@@ -156,36 +168,36 @@ local plugins = {
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
       require "configs.nvim-treesitter-textobjects" -- Load our custom configuration for lspconfig
-    end
+    end,
   },
 
   {
-    'kevinhwang91/nvim-ufo',
+    "kevinhwang91/nvim-ufo",
     -- event = { "BufReadPre", "BufNewFile" }, - Will get an ufo.end error
     event = "UIEnter", -- needed for folds to load in time and comments being closed
-    dependencies = { 'kevinhwang91/promise-async' },
+    dependencies = { "kevinhwang91/promise-async" },
     opts = {
-      filetype_exclude = { 'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble', 'lazy', 'mason' },
+      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
     },
 
     config = function()
       require "configs.nvim-ufo" -- Load our custom configuration for lspconfig
-    end
+    end,
   },
 
   {
-    'skywind3000/asynctasks.vim',
-    dependencies = 'skywind3000/asyncrun.vim',
-    cmd = 'AsyncTaskEdit',
+    "skywind3000/asynctasks.vim",
+    dependencies = "skywind3000/asyncrun.vim",
+    cmd = "AsyncTaskEdit",
     keys = {
-      { "<F4>", "<cmd>AsyncTask project-clean<cr>", silent=true, desc = "Clean Project" },
-      { "<F5>", "<cmd>execute 'silent w' | AsyncTask file-run<cr>", silent=true, desc = "Run File" },
-      { "<F6>", "<cmd>AsyncTask file-build<cr>", silent=true, desc = "Build File" },
-      { "<F7>", "<cmd>AsyncTask file-test<cr>", silent=true, desc = "Test File" },
-      { "<F8>", "<cmd>AsyncTask project-test<cr>", silent=true, desc = "Project File" },
-      { "<F9>", "<cmd>AsyncTask project-run<cr>", silent=true, desc = "Run Project" },
-      { "<F10>", "<cmd>AsyncTask project-build<cr>", silent=true, desc = "Build Project" },
-    }
+      { "<F4>", "<cmd>AsyncTask project-clean<cr>", silent = true, desc = "Clean Project" },
+      { "<F5>", "<cmd>execute 'silent w' | AsyncTask file-run<cr>", silent = true, desc = "Run File" },
+      { "<F6>", "<cmd>AsyncTask file-build<cr>", silent = true, desc = "Build File" },
+      { "<F7>", "<cmd>AsyncTask file-test<cr>", silent = true, desc = "Test File" },
+      { "<F8>", "<cmd>AsyncTask project-test<cr>", silent = true, desc = "Project File" },
+      { "<F9>", "<cmd>AsyncTask project-run<cr>", silent = true, desc = "Run Project" },
+      { "<F10>", "<cmd>AsyncTask project-build<cr>", silent = true, desc = "Build Project" },
+    },
   },
 
   {
@@ -196,7 +208,7 @@ local plugins = {
       "nvim-neotest/neotest-python",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter"
+      "nvim-treesitter/nvim-treesitter",
     },
     config = function()
       require "configs.neotest"
@@ -205,33 +217,34 @@ local plugins = {
 
   {
     "max397574/better-escape.nvim",
-      event = "InsertEnter",
-      config = function()
-        require("better_escape").setup()
-      end
+    event = "InsertEnter",
+    config = function()
+      require("better_escape").setup()
+    end,
   },
 
   {
-      "kylechui/nvim-surround",
-      version = "*", -- Use for stability; omit to use `main` branch for the latest features
-      event = "VeryLazy",
-      config = function()
-          require("nvim-surround").setup({
-              -- Configuration here, or leave empty to use defaults
-          })
-      end
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
 
   {
-      "mg979/vim-visual-multi",
-      event = "VeryLazy",
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
   },
 
   {
-    'LhKipp/nvim-nu',
+    "LhKipp/nvim-nu",
     ft = "nu",
-    config = function() require'nu'.setup{}
-    end
+    config = function()
+      require("nu").setup {}
+    end,
   },
 
   {
@@ -247,17 +260,17 @@ local plugins = {
     config = function()
       require("dbee").setup {
         sources = {
-          require("dbee.sources").MemorySource:new({
+          require("dbee.sources").MemorySource:new {
             {
               name = "MySQL",
               type = "mysql",
               -- Update the root password to null
               url = "root:@tcp(localhost:3306)/mysql",
             },
-          }),
-      },
-    }
-    end
+          },
+        },
+      }
+    end,
   },
 
   {
@@ -273,9 +286,9 @@ local plugins = {
     version = "*",
     cmd = "ToggleTerm",
     config = function()
-      require("toggleterm").setup{
-        direction = 'horizontal',
-        shell = "nu.exe"
+      require("toggleterm").setup {
+        direction = "horizontal",
+        shell = "nu.exe",
       }
     end,
   },
@@ -285,8 +298,7 @@ local plugins = {
     event = "BufEnter",
     cmd = "Trouble",
     config = function()
-      require("trouble").setup{
-      }
+      require("trouble").setup {}
     end,
     keys = {
       { "<leader>i", "<cmd>Trouble diagnostics toggle<cr>", desc = "trouble" },
@@ -295,48 +307,40 @@ local plugins = {
   },
 
   {
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    -- optionally, override the default options:
-    config = function()
-      require("tailwindcss-colorizer-cmp").setup({
-        color_square_width = 2,
-      })
-    end
-  },
-
-  {
-      'MeanderingProgrammer/render-markdown.nvim',
-      ft = "markdown",
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-      ---@module 'render-markdown'
----@diagnostic disable-next-line: undefined-doc-name
-      ---@type render.md.UserConfig
-      keys = {
-        {
-          "<leader>oc",
-          function() require("render-markdown").toggle() end,
-          ft = "markdown",
-          desc = " Markdown Render",
-        },
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = "markdown",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    ---@module 'render-markdown'
+    ---@diagnostic disable-next-line: undefined-doc-name
+    ---@type render.md.UserConfig
+    keys = {
+      {
+        "<leader>oc",
+        function()
+          require("render-markdown").toggle()
+        end,
+        ft = "markdown",
+        desc = " Markdown Render",
       },
-      opts = {
-        render_modes = { "n", "c", "i", "v", "V" },
-        bullet = {
-          icons = { "▪️", "▫️", "•", "◦" },
-        },
-        heading = {
-          icons = {}, -- disables icons
-        },
-        code = {
-          border = "thick",
-          position = "left",
-        },
-        sign = { enabled = false },
-        win_options = {
-          -- toggling this plugin should also toggle conceallevel
-          conceallevel = { default = 0, rendered = 3 },
-        },
+    },
+    opts = {
+      render_modes = { "n", "c", "i", "v", "V" },
+      bullet = {
+        icons = { "▪️", "▫️", "•", "◦" },
       },
+      heading = {
+        icons = {}, -- disables icons
+      },
+      code = {
+        border = "thick",
+        position = "left",
+      },
+      sign = { enabled = false },
+      win_options = {
+        -- toggling this plugin should also toggle conceallevel
+        conceallevel = { default = 0, rendered = 3 },
+      },
+    },
   },
 
   {
@@ -355,11 +359,13 @@ local plugins = {
     commander = {
       {
         desc = "Open Commander",
-        cmd = function() require("commander").show() end,
+        cmd = function()
+          require("commander").show()
+        end,
         keys = {
           { "n", "<leader>fc" },
         },
-      }
+      },
     },
     opts = {
       components = {
@@ -371,7 +377,7 @@ local plugins = {
         "DESC",
         "KEYS",
         "CAT",
-        "CMD"
+        "CMD",
       },
 
       integration = {
@@ -380,10 +386,10 @@ local plugins = {
         },
         lazy = {
           enable = true,
-          set_plugin_name_as_cat = true
-        }
-      }
-    }
+          set_plugin_name_as_cat = true,
+        },
+      },
+    },
   },
 
   {
@@ -398,21 +404,21 @@ local plugins = {
     "kdheepak/lazygit.nvim",
     lazy = true,
     cmd = {
-        "LazyGit",
-        "LazyGitConfig",
-        "LazyGitCurrentFile",
-        "LazyGitFilter",
-        "LazyGitFilterCurrentFile",
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
     },
     -- optional for floating window border decoration
     dependencies = {
-        "nvim-lua/plenary.nvim",
+      "nvim-lua/plenary.nvim",
     },
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-        { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    }
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
   },
 
   {
@@ -424,8 +430,8 @@ local plugins = {
   {
     "luckasRanarison/clear-action.nvim",
     config = function()
-      require("clear-action").setup({})
-    end
+      require("clear-action").setup {}
+    end,
   },
 
   {
@@ -435,31 +441,46 @@ local plugins = {
       { "<leader>zm", "<cmd>TZMinimalist<cr>", desc = "minimalist" },
       { "<leader>za", "<cmd>TZAtaraxis<cr>", desc = "ataraxis" },
     },
-    config = function () require("true-zen")
-    end
+    config = function()
+      require "true-zen"
+    end,
+  },
+
+  {
+    "dundalek/bloat.nvim",
+    cmd = "Bloat",
+  },
+  {
+    "soulis-1256/eagle.nvim",
+    event = "BufReadPre",
+    opts = {
+      --override the default values found in config.lua
+      mouse_mode = false,
+      keyboard_mode = true,
+    },
   },
 
   --AI capabilities
   {
-    'olimorris/codecompanion.nvim',
+    "olimorris/codecompanion.nvim",
     event = "BufReadPre",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-lua/plenary.nvim',
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-lua/plenary.nvim",
       {
-        'stevearc/dressing.nvim', -- Optional: Improves the default Neovim UI
+        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
         opts = {},
       },
     },
     cmd = {
-      'CodeCompanion',
-      'CodeCompanionChat',
-      'CodeCompanionToggle',
-      'CodeCompanionActions',
+      "CodeCompanion",
+      "CodeCompanionChat",
+      "CodeCompanionToggle",
+      "CodeCompanionActions",
     },
     config = function()
       require "configs.codecompanion" -- Load our custom configuration for lspconfig
-    end
+    end,
   },
 }
 
