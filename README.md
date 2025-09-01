@@ -4,7 +4,7 @@
 
 ## Configuration
 
-- Terminal: [alacritty](https://github.com/alacritty/alacritty)
+- Terminal: [wezterm](https://wezterm.org/)
 - Shell: [nushell](https://github.com/nushell/nushell) and [powershell](https://github.com/PowerShell/PowerShell)
 - Editor: [neovim](https://github.com/neovim/neovim)
 - Prompt: [starship](https://github.com/starship/starship)
