@@ -1,7 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-local ufo = require("ufo")
+local ufo = require "ufo"
 
 -- Visual
 map("v", "<", "<gv")
@@ -12,7 +12,7 @@ map("n", "<A-Up>", "<C-W>+")
 map("n", "<A-Down>", "<C-W>-")
 map("n", "<A-j>", ":m .+1<CR>==") -- move line up(n)
 map("n", "<A-k>", ":m .-2<CR>==") -- move line down(n)
-map("v",  "<A-j>",":m '>+1<CR>gv=gv")-- move line up(v)
+map("v", "<A-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 map("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
 -- Macros
@@ -27,12 +27,16 @@ map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 map("n", "<leader>gg", "<Cmd>Telescope frecency<CR>")
 map("n", "<leader>gj", "<Cmd>Telescope zoxide list<CR>")
 map({ "n", "t" }, "<A-i>", function()
-    require("nvchad.term").toggle { pos = "float", id = "floatTerm", float_opts={
-        row = 0.35,
-        col = 0.05,
-        width = 0.9,
-        height = 0.9
-    }}
+  require("nvchad.term").toggle {
+    pos = "float",
+    id = "floatTerm",
+    float_opts = {
+      row = 0.35,
+      col = 0.05,
+      width = 0.9,
+      height = 0.9,
+    },
+  }
 end, { desc = "terminal toggle floating term" })
 
 -- DAP plugin
@@ -41,28 +45,35 @@ map("n", "<leader>dr", "<cmd>DapContinue <cr>")
 map("n", "<leader>di", "<cmd>DapToggleRepl <cr>")
 map("n", "<leader>dt", "<cmd>DapTerminate <cr>")
 
-map("n", "<leader>dpr", function ()
-    require("dap-python").test_method()
+map("n", "<leader>dpr", function()
+  require("dap-python").test_method()
 end)
 
 -- Neotest
 -- map("n", "<leader>tt", "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>")
-map("n", "<leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")  --run all test in the file
-map("n", "<leader>ts", "<Cmd>lua require('neotest').run.stop()<CR>")  --run all test in the file
-map("n", "<leader>tv", "<Cmd>lua require('neotest').summary.toggle()<CR>")  --run all test in the file
+map("n", "<leader>tt", "<Cmd>lua require('neotest').run.run()<CR>") --run all test in the file
+map("n", "<leader>ts", "<Cmd>lua require('neotest').run.stop()<CR>") --run all test in the file
+map("n", "<leader>tv", "<Cmd>lua require('neotest').summary.toggle()<CR>") --run all test in the file
 
-
+map("n", "<leader>te", ":EagleWin<CR>")
 -- UI improvement plugins
 map("n", "<leader>ss", ":SearchBoxIncSearch<CR>")
 map("n", "<leader>sr", ":SearchBoxReplace<CR>")
 map("n", "<leader>sc", ":SearchBoxReplace confirm=menu<CR>")
 
 --  nvim-ufo plugin
-map("n", "z1", function() ufo.closeFoldsWith(1) end, {desc = "󱃄 Close L1 Folds"} )
-map("n", "z2", function() ufo.closeFoldsWith(2) end, {desc = "󱃄 Close L2 Folds"} )
-map("n", "z3", function() ufo.closeFoldsWith(3) end, {desc = "󱃄 Close L3 Folds"} )
-map("n", "z4", function() ufo.closeFoldsWith(3) end, {desc = "󱃄 Close L4 Folds"} )
-
+map("n", "z1", function()
+  ufo.closeFoldsWith(1)
+end, { desc = "󱃄 Close L1 Folds" })
+map("n", "z2", function()
+  ufo.closeFoldsWith(2)
+end, { desc = "󱃄 Close L2 Folds" })
+map("n", "z3", function()
+  ufo.closeFoldsWith(3)
+end, { desc = "󱃄 Close L3 Folds" })
+map("n", "z4", function()
+  ufo.closeFoldsWith(3)
+end, { desc = "󱃄 Close L4 Folds" })
 
 --got-to-preview
 map("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
