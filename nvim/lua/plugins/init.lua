@@ -435,6 +435,27 @@ local plugins = {
   },
 
   {
+    "piersolenski/import.nvim",
+    dependencies = {
+      -- One of the following pickers is required:
+      "nvim-telescope/telescope.nvim",
+      -- 'folke/snacks.nvim',
+      -- 'ibhagwan/fzf-lua',
+    },
+    opts = {
+      picker = "telescope",
+    },
+    keys = {
+      {
+        "<leader>li",
+        function()
+          require("import").pick()
+        end,
+        desc = "Import",
+      },
+    },
+  },
+  {
     "Pocco81/true-zen.nvim",
     keys = {
       { "<leader>zf", "<cmd>TZFocus<cr>", desc = "focus" },
