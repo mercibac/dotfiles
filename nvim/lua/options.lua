@@ -2,7 +2,7 @@ require "nvchad.options"
 
 local vim = vim
 local enable_providers = {
-  "python_provider",
+  "python3_provider",
   "node_provider",
   -- and so on
 }
