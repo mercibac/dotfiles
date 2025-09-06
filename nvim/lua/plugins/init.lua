@@ -119,7 +119,6 @@ local plugins = {
         -- defaults and tools
         "lua",
         "sql",
-        "nu",
         "bash",
         "vim",
         "vimdoc",
@@ -154,10 +153,6 @@ local plugins = {
         "svelte",
         "beancount",
       },
-    },
-    dependencies = {
-      -- NOTE: additional parser
-      { "nushell/tree-sitter-nu" },
     },
     build = ":TSUpdate",
   },
