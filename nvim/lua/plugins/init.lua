@@ -445,6 +445,16 @@ local plugins = {
     "dundalek/bloat.nvim",
     cmd = "Bloat",
   },
+
+  {
+    "karb94/neoscroll.nvim",
+    event = "BufReadPre",
+    opts = {},
+    config = function()
+      require "configs.neoscroll"
+    end,
+  },
+
   {
     "soulis-1256/eagle.nvim",
     event = "BufReadPre",
