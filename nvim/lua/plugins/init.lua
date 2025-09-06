@@ -426,10 +426,6 @@ local plugins = {
   },
 
   {
-    "luckasRanarison/clear-action.nvim",
-    config = function()
-      require("clear-action").setup {}
-    end,
   },
 
   {
