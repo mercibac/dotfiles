@@ -300,7 +300,7 @@ local plugins = {
     keys = {
       { "<leader>i", "<cmd>Trouble diagnostics toggle<cr>", desc = "trouble" },
     },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", { "nvim-mini/mini.nvim", version = "*" } },
   },
 
   {
