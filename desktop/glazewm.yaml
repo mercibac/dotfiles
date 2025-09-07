@@ -44,14 +44,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '5px'
+  inner_gap: '20px'
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '40px'
-    right: '7px'
-    bottom: '7px'
-    left: '7px'
+    top: '60px'
+    right: '20px'
+    bottom: '20px'
+    left: '20px'
 
 window_effects:
   # Visual effects to apply to the focused window.
