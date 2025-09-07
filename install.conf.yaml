@@ -21,8 +21,8 @@
     ~/.config/powershell:
     ~/AppData/Roaming/alacritty/alacritty.toml:
     ~/.config/whkdrc:
-    ~/.glzr/glazewm/config.yaml: glazewm.yaml
-    ~/.glzr/zebar/settings.json: zebar.json
+    ~/.glzr/glazewm/config.yaml: desktop/glazewm.yaml
+    ~/.glzr/zebar/settings.json: desktop/zebar.json
 
 - shell:
     - git submodule sync --recursive

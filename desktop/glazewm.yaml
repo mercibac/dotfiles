@@ -131,11 +131,20 @@ workspaces:
   - name: '9'
 
 window_rules:
+  - commands: [ set-floating ]
+    match:
+      # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
+      - window_class: { equals: '#32770' }
+
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
 
+      # Ignore some of my software
+      - window_process: {equals: "Photoshop"}
+      - window_process: { equals: "Taskmgr"}
+      
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
         window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
