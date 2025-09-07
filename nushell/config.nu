@@ -810,15 +810,15 @@ alias e = exit
 alias pos = poetry shell; cls
 alias ollama_ui = docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 
-def --env take [path] {
+def --env take [path: string] {
     mkdir $path | cd $path
 }
 
-def --env lsd [path] {
+def --env lsd [path: string] {
     cd $path | ls
 }
 
-def --env lsr [path] {
+def --env lsr [path: string] {
     cd $path | ls
     cd -
 }
