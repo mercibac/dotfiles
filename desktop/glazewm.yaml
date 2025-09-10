@@ -135,6 +135,9 @@ window_rules:
     match:
       # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
       - window_class: { equals: '#32770' }
+      
+      - windows_process: { equals: 'wezterm-gui' }
+        window_class: { regex: 'org.wezfurlong.wezterm' }
 
   - commands: ['ignore']
     match:
