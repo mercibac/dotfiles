@@ -1,28 +1,27 @@
--- custom.plugins.lspconfig
-local configs = require("nvchad.configs.lspconfig")
+local configs = require "nvchad.configs.lspconfig"
 
 local on_attach = configs.on_attach
 local on_init = configs.on_init
 local capabilities = configs.capabilities
 
-local lspconfig = require "lspconfig"
-local servers = {"pyright", "html", "lua_ls", "cssls", "tsserver"}
+local prcfg = {
+  settings = {
+    pyright = {
+      disableOrganizeImports = true, -- Using Ruff
+    },
+    python = {
+      analysis = {
+        ignore = { "*" }, -- Using Ruff
+        typeCheckingMode = "off", -- Using Ruff
+      },
+    },
+  },
+}
 
-for _, lsp in ipairs(servers) do
-    if lsp == "tsserver" then
-      lsp = "ts_ls"
-    end
-    lspconfig[lsp].setup {
-    on_init = on_init,
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
-lspconfig.svelte.setup { filetypes = { "svelte" } }
-lspconfig.tailwindcss.setup{
+local twcgf = {
   settings = {
     tailwindCSS = {
+      classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
       experimental = {
         classRegex = {
           'tw([^"])',
@@ -35,9 +34,25 @@ lspconfig.tailwindcss.setup{
     },
   },
 }
-lspconfig.asm_lsp.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {"asm-lsp"},
-  filetypes = { "asm", "nasm", "masm", "vmasm", "s", "S" },
+
+local servers = {
+  { "lua_ls" },
+  { "html" },
+  { "cssls" },
+  { "tailwindcss", twcgf },
+  { "svelte" },
+  { "pyright", prcfg },
+  { "ty" },
+  { "ts_ls" },
+  { "biome" },
+  { "asm_lsp" },
 }
+
+for _, lsp in pairs(servers) do
+  local name, config = lsp[1], lsp[2]
+  if config then
+    vim.lsp.config(name, config)
+  end
+  vim.lsp.config("*", { capabilities = capabilities, on_init = on_init })
+  vim.lsp.enable(name)
+end
