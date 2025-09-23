@@ -123,6 +123,7 @@ local plugins = {
         "vim",
         "vimdoc",
         "luadoc",
+        "nu",
         "yaml",
         "toml",
         "xml",
@@ -349,7 +350,7 @@ local plugins = {
 
   {
     "FeiyouG/commander.nvim",
-    event = "UIEnter",
+    event = "VeryLazy",
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
@@ -491,7 +492,16 @@ local plugins = {
     },
   },
 
-  --AI capabilities
+  {
+      'chipsenkbeil/distant.nvim',
+      branch = 'v0.3',
+      event = "VeryLazy",
+      config = function()
+          require('distant'):setup()
+      end
+  },
+
+  -- AI capabilities
   {
     "olimorris/codecompanion.nvim",
     event = "BufReadPre",
