@@ -23,19 +23,19 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "pyright",
-        "ruff",
-        "black",
-        "mypy",
-        "debugpy",
         "lua-language-server",
-        "stylelua",
+        "dockerfile-language-server",
+        "eslint-lsp",
+        "pyright",
+        "debugpy",
         "typescript-language-server",
-        "js-debug-adapter",
-        "prettier",
         "svelte-language-server",
         "tailwindcss-language-server",
-        "eslint-lsp",
+        "js-debug-adapter",
+        "stylelua",
+        "ruff",
+        "tye",
+        "biome",
       },
     },
   },
@@ -493,12 +493,12 @@ local plugins = {
   },
 
   {
-      'chipsenkbeil/distant.nvim',
-      branch = 'v0.3',
-      event = "VeryLazy",
-      config = function()
-          require('distant'):setup()
-      end
+    "chipsenkbeil/distant.nvim",
+    branch = "v0.3",
+    event = "VeryLazy",
+    config = function()
+      require("distant"):setup()
+    end,
   },
 
   -- AI capabilities

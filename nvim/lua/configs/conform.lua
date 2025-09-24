@@ -5,7 +5,9 @@ local options = {
       "ruff_fix", -- To fix lint errors. (ruff with argument --fix)
       "ruff_format", -- To run the formatter. (ruff with argument format)
     },
-    javascript = { "prettierd", "prettier", stop_after_first = true },
+    javascript = { "biome" },
+    typescript = { "biome" },
+    svelte = { "biome" },
   },
 }
 
