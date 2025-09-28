@@ -501,6 +501,14 @@ local plugins = {
     end,
   },
 
+  {
+      "nvzone/typr",
+      event = "VeryLazy",
+      dependencies = "nvzone/volt",
+      opts = {},
+      cmd = { "Typr", "TyprStats" },
+  },
+
   -- AI capabilities
   {
     "olimorris/codecompanion.nvim",
