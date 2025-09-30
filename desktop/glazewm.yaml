@@ -44,14 +44,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '20px'
+  inner_gap: '10px'
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '60px'
-    right: '20px'
-    bottom: '20px'
-    left: '20px'
+    top: '40px'
+    right: '10px'
+    bottom: '10px'
+    left: '10px'
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -136,8 +136,8 @@ window_rules:
       # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
       - window_class: { equals: '#32770' }
       
-      - windows_process: { equals: 'wezterm-gui' }
-        window_class: { regex: 'org.wezfurlong.wezterm' }
+      # - windows_process: { equals: 'wezterm-gui' }
+      #   window_class: { regex: 'org.wezfurlong.wezterm' }
 
   - commands: ['ignore']
     match:
@@ -268,7 +268,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec cmd']
+  - commands: ['shell-exec wezterm']
     bindings: ['alt+enter']
 
   # Focus the next/previous active workspace defined in `workspaces` config.
