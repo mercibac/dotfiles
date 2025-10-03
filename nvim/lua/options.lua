@@ -13,6 +13,7 @@ for _, plugin in pairs(enable_providers) do
 end
 
 vim.g.mapleader = " "
+vim.opt.clipboard = ""
 vim.o.shell = "cmd.exe"
 vim.o.termguicolors = true
 vim.opt.fileencoding = "utf-8"
