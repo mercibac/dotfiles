@@ -41,7 +41,6 @@ local servers = {
   ty = {},
   ts_ls = {},
   biome = {},
-  asm_lsp = {},
 }
 
 for name, opts in pairs(servers) do
