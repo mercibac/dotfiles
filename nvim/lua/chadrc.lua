@@ -9,6 +9,6 @@ local M = {}
 
   }
 
- M.mappings = require 'mappings'
+ M.mappings = 'mappings'
 
 return M
