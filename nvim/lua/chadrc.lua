@@ -3,7 +3,7 @@ local M = {}
 M.plugins = "plugins"
 
 M.base46 = {
-  theme_toggle = { "catppuccin", "tokyonight", "onedark", "kanagawa" },
+  theme_toggle = { "catppuccin", "onedark" },
   theme = "onedark", -- default theme
   transparency = true,
 }
