@@ -516,10 +516,6 @@ local plugins = {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
-      {
-        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
-        opts = {},
-      },
     },
     cmd = {
       "CodeCompanion",
