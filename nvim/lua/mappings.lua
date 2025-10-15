@@ -4,7 +4,7 @@ local map = vim.keymap.set
 local ufo = require "ufo"
 local snacks = require "snacks"
 
--- Visual
+-- Basics
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 map("n", "<A-Right>", "<C-W><")
@@ -15,8 +15,6 @@ map("n", "<A-j>", ":m .+1<CR>==") -- move line up(n)
 map("n", "<A-k>", ":m .-2<CR>==") -- move line down(n)
 map("v", "<A-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 map("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
-
--- Macros
 map("v", "qq", ":norm! @q<CR>")
 map("n", "<C-a>", "gg<S-v>G")
 map("n", "<leader><space>", "<cmd>wqa<cr>")
@@ -27,7 +25,7 @@ map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 -- Telescope plugin
 map("n", "<leader>gg", "<Cmd>Telescope frecency<CR>")
 map("n", "<leader>gj", "<Cmd>Telescope zoxide list<CR>")
-map({ "n", "t" }, "<A-i>", function()
+map({ "n", "t" }, "<C-i>", function()
   require("nvchad.term").toggle {
     pos = "float",
     id = "floatTerm",
