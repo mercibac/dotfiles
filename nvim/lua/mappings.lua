@@ -2,6 +2,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local ufo = require "ufo"
+local snacks = require "snacks"
 
 -- Visual
 map("v", "<", "<gv")
@@ -38,6 +39,33 @@ map({ "n", "t" }, "<A-i>", function()
     },
   }
 end, { desc = "terminal toggle floating term" })
+
+-- Top Pickers & Explorer
+-- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+-- { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+-- { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
+-- { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+-- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
+-- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+-- find
+map("n", "<leader>fb", function()
+  snacks.picker.buffers()
+end, { desc = "Buffers" })
+map("n", "<leader>fc", function()
+  snacks.picker.files { cwd = vim.fn.stdpath "config" }
+end, { desc = "Find Config File" })
+map("n", "<leader>ff", function()
+  snacks.picker.smart { finders = { "files" }, format = "file", filter = { cwd = true }, layout = "select" }
+end, { desc = "Find Files" })
+map("n", "<leader>fg", function()
+  snacks.picker.git_files()
+end, { desc = "Find Git Files" })
+map("n", "<leader>fp", function()
+  snacks.picker.projects()
+end, { desc = "Projects" })
+map("n", "<leader>fr", function()
+  snacks.picker.recent { layout = "select" }
+end, { desc = "Recent" })
 
 -- DAP plugin
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint <cr>")

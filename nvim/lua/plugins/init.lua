@@ -9,6 +9,25 @@ local plugins = {
     end,
   },
   {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      explorer = { enabled = false },
+      indent = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
+
+  {
     -- In order ts modify the `lspconfig` configuration:
     "neovim/nvim-lspconfig",
 
@@ -133,6 +152,8 @@ local plugins = {
         "vimdoc",
         "luadoc",
         "nu",
+        "regex",
+        "latex",
         "yaml",
         "toml",
         "xml",
@@ -406,12 +427,12 @@ local plugins = {
     "piersolenski/import.nvim",
     dependencies = {
       -- One of the following pickers is required:
-      "nvim-telescope/telescope.nvim",
-      -- 'folke/snacks.nvim',
+      -- "nvim-telescope/telescope.nvim",
+      "folke/snacks.nvim",
       -- 'ibhagwan/fzf-lua',
     },
     opts = {
-      picker = "telescope",
+      picker = "snacks",
     },
     keys = {
       {
