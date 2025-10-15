@@ -32,7 +32,7 @@ config.use_ime = true
 config.ime_preedit_rendering = "Builtin"
 -- config.use_fancy_tab_bar = false
 -- config.hide_tab_bar_if_only_one_tab = true
-config.font = wezterm.font("FiraCode Nerd Font")
+config.font = wezterm.font_with_fallback { 'FiraCode Nerd Font', 'JetBrains Mono' }
 config.default_prog = { "nu" }
 config.launch_menu = {
 	{
