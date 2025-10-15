@@ -1,4 +1,13 @@
 local plugins = {
+  { import = "nvchad.blink.lazyspec" },
+    "saghen/blink.cmp",
+    -- event = "InsertEnter",
+    -- dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+    version = "1.*",
+    opts = function()
+      return require "configs.blink"
+    end,
+  },
   {
     -- In order ts modify the `lspconfig` configuration:
     "neovim/nvim-lspconfig",
