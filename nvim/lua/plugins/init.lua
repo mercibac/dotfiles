@@ -1,5 +1,7 @@
 local plugins = {
   { import = "nvchad.blink.lazyspec" },
+
+  {
     "saghen/blink.cmp",
     -- event = "InsertEnter",
     -- dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
@@ -8,6 +10,7 @@ local plugins = {
       return require "configs.blink"
     end,
   },
+
   {
     "folke/snacks.nvim",
     priority = 1000,
@@ -62,7 +65,7 @@ local plugins = {
         "js-debug-adapter",
         "stylelua",
         "ruff",
-        "tye",
+        "ty",
         "biome",
       },
     },
@@ -128,7 +131,7 @@ local plugins = {
 
   {
     "mfussenegger/nvim-dap-python",
-    ft = { "python", "javascript" },
+    ft = { "python" },
     dependencies = {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
@@ -490,11 +493,23 @@ local plugins = {
   },
 
   {
-      "nvzone/typr",
-      event = "VeryLazy",
-      dependencies = "nvzone/volt",
-      opts = {},
-      cmd = { "Typr", "TyprStats" },
+    "benomahony/uv.nvim",
+    ft = { "python" },
+    dependencies = {
+      -- "nvim-telescope/telescope.nvim",
+      "folke/snacks.nvim",
+    },
+    opts = {
+      picker_integration = true,
+    },
+  },
+
+  {
+    "nvzone/typr",
+    event = "VeryLazy",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
   },
 
   -- AI capabilities
