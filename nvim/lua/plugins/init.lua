@@ -358,48 +358,6 @@ local plugins = {
   },
 
   {
-    "FeiyouG/commander.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    commander = {
-      {
-        desc = "Open Commander",
-        cmd = function()
-          require("commander").show()
-        end,
-        keys = {
-          { "n", "<leader>fc" },
-        },
-      },
-    },
-    opts = {
-      components = {
-        "DESC",
-        "KEYS",
-        "CAT",
-      },
-      sort_by = {
-        "DESC",
-        "KEYS",
-        "CAT",
-        "CMD",
-      },
-
-      integration = {
-        telescope = {
-          enable = true,
-        },
-        lazy = {
-          enable = true,
-          set_plugin_name_as_cat = true,
-        },
-      },
-    },
-  },
-
-  {
     "ray-x/lsp_signature.nvim",
     event = "LspAttach",
     config = function()
