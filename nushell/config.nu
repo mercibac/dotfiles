@@ -831,17 +831,4 @@ def --env workon [venv: string] {
 # External tools
 source ~/.cache\starship\init.nu
 source ~/.zoxide.nu
-source ~/.config/scoop.nu
-# source ~/.config/nushell/scoop-completions.nu
-source ~/.config/nushell/poetry-completions.nu
 source ~/.config/nushell/sfsu_.nu
-
-# IntelliShell
-$env.INTELLI_HOME = 'C:\Users\Merci_Bacman\AppData\Roaming\IntelliShell\Intelli-Shell\data'
-# $env.INTELLI_SEARCH_HOTKEY = "control space"
-# $env.INTELLI_VARIABLE_HOTKEY = "control char_l"
-# $env.INTELLI_BOOKMARK_HOTKEY = "control char_b"
-# $env.INTELLI_FIX_HOTKEY = "control char_x"
-# alias is = intelli-shell
-mkdir ($nu.data-dir | path join "vendor/autoload")
-intelli-shell init nushell | save -f ($nu.data-dir | path join "vendor/autoload/intelli-shell.nu")
