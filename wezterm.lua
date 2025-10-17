@@ -41,7 +41,7 @@ config.launch_menu = {
 	},
 	{
 		label = "pwsh",
-		args = { "C:/Program Files/PowerShell/7/pwsh.exe", "-nologo" },
+		args = { "C:/Users/Merbac/scoop/shims/pwsh.exe", "-nologo" },
 	},
 	{
 		label = "cmd",
