@@ -17,7 +17,6 @@
     ~/.config/wezterm/wezterm.lua:
     ~/.config/starship.toml: starship/starship.toml
     ~/.config/powershell:
-    ~/.config/whkdrc:
     ~/.glzr/glazewm/config.yaml: desktop/glazewm.yaml
     ~/.glzr/zebar/settings.json: desktop/zebar.json
 
