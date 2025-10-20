@@ -832,3 +832,7 @@ def --env workon [venv: string] {
 source ~/.cache\starship\init.nu
 source ~/.zoxide.nu
 source ~/.config/nushell/sfsu_.nu
+source ~/.config/nushell/completions/scoop-completions.nu
+source ~/.config/nushell/completions/uv-completions.nu
+source ~/.config/nushell/completions/pnpm-completions.nu
+source ~/.config/nushell/completions/docker-completions.nu

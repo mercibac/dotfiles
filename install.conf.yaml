@@ -13,6 +13,10 @@
     ~/.config/nushell/env.nu: nushell/env.nu
     ~/.config/nushell/sfsu_.nu: nushell/sfsu_.nu
     ~/.cache/starship/init.nu: starship/init.nu
+    ~/.config/nushell/completions/scoop-completions.nu: nushell/completions/scoop-completions.nu
+    ~/.config/nushell/completions/uv-completions.nu: nushell/completions/uv-completions.nu
+    ~/.config/nushell/completions/pnpm-completions.nu: nushell/completions/pnpm-completions.nu
+    ~/.config/nushell/completions/docker-completions.nu: nushell/completions/docker-completions.nu
     ~/.bashrc: bashrc
     ~/.config/wezterm/wezterm.lua:
     ~/.config/starship.toml: starship/starship.toml
