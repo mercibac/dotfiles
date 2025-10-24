@@ -31,11 +31,11 @@ config.default_prog = { "nu" }
 config.launch_menu = {
 	{
 		label = "nu",
-		args = { "C:/Users/Merci_Bacman/scoop/shims/nu.exe" },
+		args = { "nu.exe" },
 	},
 	{
 		label = "pwsh",
-		args = { "C:/Users/Merbac/scoop/shims/pwsh.exe", "-nologo" },
+		args = { "pwsh.exe", "-nologo" },
 	},
 	{
 		label = "cmd",
