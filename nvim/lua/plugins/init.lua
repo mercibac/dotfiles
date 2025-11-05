@@ -496,11 +496,15 @@ local plugins = {
     "benomahony/uv.nvim",
     ft = { "python" },
     dependencies = {
-      -- "nvim-telescope/telescope.nvim",
       "folke/snacks.nvim",
     },
     opts = {
       picker_integration = true,
+      keymaps = {
+        prefix = "<leader>u",
+        -- Disable specific keymaps
+        init = false,
+      },
     },
   },
 
