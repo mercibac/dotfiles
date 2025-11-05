@@ -30,7 +30,6 @@ Set-Alias tig "C:\Program Files\Git\usr\bin\tig.exe"
 Set-Alias less "C:\Program Files\Git\usr\bin\less.exe"
 Set-Alias ls ls_git
 Set-Alias cat bat
-Set-Alias alconfig 'nvim "C:\Users\Merci_Bacman\.config\alacritty.toml"'
 Set-Alias c cls
 Set-Alias v nvim
 
