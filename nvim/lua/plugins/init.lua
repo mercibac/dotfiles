@@ -154,7 +154,7 @@ local plugins = {
         "vim",
         "vimdoc",
         "luadoc",
-        "nu",
+        -- "nu",
         "regex",
         "latex",
         "yaml",
