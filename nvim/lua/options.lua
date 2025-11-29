@@ -14,7 +14,6 @@ end
 
 vim.g.mapleader = " "
 vim.opt.clipboard = ""
-vim.g.python3_host_prog = "D:\\VE\\nvim\\Scripts\\python.exe"
 vim.o.shell = "cmd.exe"
 vim.o.termguicolors = true
 vim.opt.fileencoding = "utf-8"
