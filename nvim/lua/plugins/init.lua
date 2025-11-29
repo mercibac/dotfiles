@@ -3,8 +3,6 @@ local plugins = {
 
   {
     "saghen/blink.cmp",
-    -- event = "InsertEnter",
-    -- dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
     version = "1.*",
     opts = function()
       return require "configs.blink"
@@ -31,9 +29,7 @@ local plugins = {
   },
 
   {
-    -- In order ts modify the `lspconfig` configuration:
     "neovim/nvim-lspconfig",
-
     dependencies = {
       "jay-babu/mason-null-ls.nvim",
       "nvimtools/none-ls.nvim",
@@ -181,14 +177,12 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults and tools
         "lua",
         "sql",
         "bash",
         "vim",
         "vimdoc",
         "luadoc",
-        -- "nu",
         "regex",
         "latex",
         "yaml",
@@ -200,8 +194,6 @@ local plugins = {
         "git_config",
         "git_rebase",
         "gitattributes",
-
-        -- software development and DevOps
         "rust",
         "pascal",
         "dockerfile",
@@ -230,21 +222,20 @@ local plugins = {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
-      require "configs.nvim-treesitter-textobjects" -- Load our custom configuration for lspconfig
+      require "configs.nvim-treesitter-textobjects"
     end,
   },
 
   {
     "kevinhwang91/nvim-ufo",
-    -- event = { "BufReadPre", "BufNewFile" }, - Will get an ufo.end error
-    event = "UIEnter", -- needed for folds to load in time and comments being closed
+    event = "UIEnter",
     dependencies = { "kevinhwang91/promise-async" },
     opts = {
       filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
     },
 
     config = function()
-      require "configs.nvim-ufo" -- Load our custom configuration for lspconfig
+      require "configs.nvim-ufo"
     end,
   },
 
@@ -288,12 +279,10 @@ local plugins = {
 
   {
     "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    version = "*",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
+      require("nvim-surround").setup {}
     end,
   },
 
@@ -402,7 +391,6 @@ local plugins = {
       },
       sign = { enabled = false },
       win_options = {
-        -- toggling this plugin should also toggle conceallevel
         conceallevel = { default = 0, rendered = 3 },
       },
     },
@@ -433,12 +421,9 @@ local plugins = {
       "LazyGitFilter",
       "LazyGitFilterCurrentFile",
     },
-    -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    -- setting the keybinding for LazyGit with 'keys' is recommended in
-    -- order to load the plugin when the command is run for the first time
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
@@ -448,25 +433,20 @@ local plugins = {
     "rmagatti/goto-preview",
     dependencies = { "rmagatti/logger.nvim" },
     event = "BufEnter",
-    config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
+    config = true,
   },
 
   {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
-    opts = {
-      -- your options here
-    },
+    opts = {},
   },
 
   {
     "piersolenski/import.nvim",
     dependencies = {
-      -- One of the following pickers is required:
-      -- "nvim-telescope/telescope.nvim",
       "folke/snacks.nvim",
-      -- 'ibhagwan/fzf-lua',
     },
     opts = {
       picker = "snacks",
@@ -511,7 +491,6 @@ local plugins = {
     "soulis-1256/eagle.nvim",
     event = "BufReadPre",
     opts = {
-      --override the default values found in config.lua
       mouse_mode = false,
       keyboard_mode = true,
     },
@@ -536,7 +515,6 @@ local plugins = {
       picker_integration = true,
       keymaps = {
         prefix = "<leader>u",
-        -- Disable specific keymaps
         init = false,
       },
     },
@@ -549,7 +527,6 @@ local plugins = {
     cmd = { "Typr", "TyprStats" },
   },
 
-  -- AI capabilities
   {
     "olimorris/codecompanion.nvim",
     dependencies = {
