@@ -136,6 +136,7 @@ local plugins = {
       "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
     },
+    cmd = { "DapToggleBreakpoint", "DapContinue", "DapToggleRepl", "DapTerminate" },
     config = function(_)
       local path = "D:/VE/Nvim/Scripts/pythonw.exe"
       require("dap-python").setup(path)
@@ -485,7 +486,7 @@ local plugins = {
   {
     "chipsenkbeil/distant.nvim",
     branch = "v0.3",
-    event = "VeryLazy",
+    cmd = { "DistantConnect", "DistantOpen", "DistantShell" },
     config = function()
       require("distant"):setup()
     end,
@@ -509,7 +510,6 @@ local plugins = {
 
   {
     "nvzone/typr",
-    event = "VeryLazy",
     dependencies = "nvzone/volt",
     opts = {},
     cmd = { "Typr", "TyprStats" },
@@ -518,7 +518,6 @@ local plugins = {
   -- AI capabilities
   {
     "olimorris/codecompanion.nvim",
-    event = "BufReadPre",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
