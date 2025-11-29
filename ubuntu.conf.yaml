@@ -8,6 +8,7 @@
 - plugins:
     - dotbot-plugins/dotbot-brew
 
+- install-brew: true
 
 - brew:
     - age
