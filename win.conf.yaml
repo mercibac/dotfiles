@@ -1,0 +1,58 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ["~"]
+
+
+- plugins:
+    - dotbot-plugins/dotbot-scoop
+
+- scoop:
+    buckets:
+      - extras
+      - versions
+      - nerd-fonts
+      - nonportable
+
+    apps:
+      - curl
+      - cmake
+      - clink
+      - imagemagick
+      - musicbee
+      - mpv
+      - 7ztm
+      - vcredist2022
+      - ditto
+      - eza
+      - fd
+      - zoxide
+      - zstd
+      - fzf
+      - gcc
+      - ffmpeg
+      - hyperfine
+      - cmake
+      - yazi
+      - ripgrep
+      - lite-xl
+      - kalker
+      - eartrumpet
+      - bat
+      - autohotkey
+      - ollama
+      - curl
+      - neovim-nightly
+      - win32yank
+
+- link:
+    ~/.bashrc: bashrc-gitbash
+    ~/.glzr/glazewm/config.yaml: desktop/glazewm.yaml
+    ~/.glzr/zebar/settings.json: desktop/zebar.json
+
+- shell:
+    - git submodule sync --recursive
+      # the following have to run after linking ~/.gitconfig
+    - git submodule update

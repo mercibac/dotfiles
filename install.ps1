@@ -1,8 +1,8 @@
 $ErrorActionPreference = "Stop"
 
-$CONFIG = "install.conf.yaml"
+$DEFAULT_CONFIG_PREFIX = "default"
+$CONFIG_SUFFIX = ".conf.yaml"
 $DOTBOT_DIR = "dotbot"
-
 $DOTBOT_BIN = "bin/dotbot"
 $BASEDIR = $PSScriptRoot
 
@@ -10,13 +10,21 @@ Set-Location $BASEDIR
 git -C $DOTBOT_DIR submodule sync --quiet --recursive
 git submodule update --init --recursive $DOTBOT_DIR
 
-foreach ($PYTHON in ('python', 'python3')) {
-    # Python redirects to Microsoft Store in Windows 10 when not installed
-    if (& { $ErrorActionPreference = "SilentlyContinue"
-            ![string]::IsNullOrEmpty((&$PYTHON -V))
-            $ErrorActionPreference = "Stop" }) {
-        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c $CONFIG $Args
-        return
-    }
+$configs = @($DEFAULT_CONFIG_PREFIX) + $args
+
+# Find Python once
+$PYTHON = (Get-Command python  -ErrorAction SilentlyContinue) `
+       ?? (Get-Command python3 -ErrorAction SilentlyContinue)
+
+if (-not $PYTHON) {
+    Write-Error "Error: Cannot find Python."
 }
-Write-Error "Error: Cannot find Python."
+
+# Dotbot entrypoint
+$DOTBOT = Join-Path (Join-Path $BASEDIR $DOTBOT_DIR) $DOTBOT_BIN
+
+# Run dotbot for default + all args
+foreach ($conf in $configs) {
+    & $PYTHON $DOTBOT -d $BASEDIR -c "$conf$CONFIG_SUFFIX"
+}
+

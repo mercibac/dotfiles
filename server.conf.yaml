@@ -1,0 +1,47 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ["~"]
+
+- plugins:
+    - dotbot-plugins/dotbot-brew
+
+
+- brew:
+    - age
+    - git-lfs
+    - starship
+    - nushell
+    - yq
+    - git
+    - neovim
+    - bat
+    - diff-so-fancy
+    - exa
+    - fzf
+    - hyperfine
+    - procs
+    - ripgrep
+    - rsync
+    - tldr
+    - tokei
+    - tree
+    - zoxide
+    - ctop
+    - speedtest-cli
+    - rclone
+    - task
+    - lazydocker
+    - lazygit
+    - cask 'ngrok
+    - neofetch
+  
+- link:
+    ~/.bash_aliases: bash-aliases-linux
+
+- shell:
+    - git submodule sync --recursive
+
+    - git submodule update

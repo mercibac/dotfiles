@@ -1,0 +1,8 @@
+alias ll='ls -la'
+alias z='zoxide'
+alias cls='clear'
+alias c='clear'
+alias v='nvim'
+alias vim='nvim'
+alias vi='vim'
+alias e='exit'
