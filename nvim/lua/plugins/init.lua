@@ -168,8 +168,7 @@ local plugins = {
     },
     cmd = { "DapToggleBreakpoint", "DapContinue", "DapToggleRepl", "DapTerminate" },
     config = function(_)
-      local path = "D:/VE/Nvim/Scripts/pythonw.exe"
-      require("dap-python").setup(path)
+      require("dap-python").setup "uv"
     end,
   },
 
