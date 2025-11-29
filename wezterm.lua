@@ -64,17 +64,15 @@ config.window_padding = {
 	bottom = 0,
 }
 config.front_end = "OpenGL"
+config.text_background_opacity = 1.0
 config.display_pixel_geometry = "RGB"
-config.warn_about_missing_glyphs = false
+config.warn_about_missing_glyphs = true
 
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
 
 config.max_fps = 120
-config.animation_fps = 0
-config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_ease_out = "Constant"
-config.use_resize_increments = true
+config.animation_fps = 10
 config.keys = {
 	{
 		key = '"',
