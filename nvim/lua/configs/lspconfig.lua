@@ -41,6 +41,8 @@ local servers = {
   ty = {},
   ts_ls = {},
   biome = {},
+  docker_language_server = {},
+  docker_compose_language_service = {},
 }
 
 for name, opts in pairs(servers) do
