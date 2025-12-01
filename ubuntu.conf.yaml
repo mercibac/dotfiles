@@ -19,7 +19,6 @@
     - age
     - git-lfs
     - yq
-    - git
     - neovim
     - ranger
     - tmux
@@ -28,12 +27,11 @@
     - ctags
     - diff-so-fancy
     - duf
-    - exa
+    - eza
     - fzf
     - hyperfine
     - procs
     - ripgrep
-    - rsync
     - tldr
     - tokei
     - tree
@@ -44,7 +42,6 @@
     - task
     - lazydocker
     - lazygit
-    - neofetch
   
 - link:
     ~/.bash_aliases: bash-aliases-linux
