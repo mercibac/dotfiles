@@ -18,6 +18,7 @@
 - brew:
     - starship
     - tree-sitter
+    - tree-sitter-cli
     - age
     - git-lfs
     - yq
