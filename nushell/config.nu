@@ -755,6 +755,7 @@ alias v = nvim
 alias vi = nvim --clean
 alias py = py.exe
 alias c = clear
+alias cls = clear
 alias ls = eza --color=auto
 alias ll = eza -la --color=auto
 alias serve = python -m http.server
