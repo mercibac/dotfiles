@@ -16,6 +16,7 @@
 - install-brew: true
 
 - brew:
+    - starship
     - age
     - git-lfs
     - yq
