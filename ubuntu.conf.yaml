@@ -39,7 +39,6 @@
     - task
     - lazydocker
     - lazygit
-    - cask 'ngrok
     - neofetch
   
 - link:
