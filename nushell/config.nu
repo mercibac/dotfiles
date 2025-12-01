@@ -120,7 +120,7 @@ let light_theme = {
 }
 
 if ($nu.os-info.name == linux) {
-  $env.PATH == ($env.PATH | prepend "/home/linuxbrew/.linuxbrew/bin")
+  $env.PATH = ($env.PATH | prepend "/home/linuxbrew/.linuxbrew/bin")
 }
 $env.EDITOR = "nvim"
 $env.config = {
