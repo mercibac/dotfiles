@@ -1,6 +1,6 @@
 $env.STARSHIP_SHELL = "nu"
 $env.STARSHIP_SESSION_KEY = (random chars -l 16)
-$env.PROMPT_MULTILINE_INDICATOR = (^'starship.exe' prompt --continuation)
+$env.PROMPT_MULTILINE_INDICATOR = (starship prompt --continuation)
 
 # Does not play well with default character module.
 # TODO: Also Use starship vi mode indicators?
