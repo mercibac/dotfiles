@@ -786,16 +786,13 @@ $env.config = {
 
 # Set aliases
 alias mpvl = mpv --loop
-alias vim = ^nvim
-alias v = ^nvim
-alias vi = ^nvim --clean
+alias vim = nvim
+alias v = nvim
+alias vi = nvim --clean
 alias py = py.exe
 alias c = cls
 alias ls = exa --color=auto
 alias ll = exa -la --color=auto
-alias ko = komorebic start -c ($env.USERPROFILE | path join komorebi.json) --whkd
-alias ks = komorebic stop
-alias alacritty-shell = vim ~\.config\alacritty.yml
 alias serve = python -m http.server
 alias cat = bat
 alias rm = rm -t
@@ -807,8 +804,6 @@ alias pycomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe
 alias pipcomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe -m pip
 alias mc = magick convert
 alias e = exit
-alias pos = poetry shell; cls
-alias ollama_ui = docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 
 def --env take [path: string] {
     mkdir $path | cd $path
