@@ -119,7 +119,9 @@ let light_theme = {
     shape_vardecl: purple
 }
 
-
+if ($nu.os-info.name == linux) {
+  $env.PATH == ($env.PATH | prepend "/home/linuxbrew/.linuxbrew/bin")
+}
 $env.EDITOR = "nvim"
 $env.config = {
     show_banner: false
