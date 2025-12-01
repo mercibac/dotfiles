@@ -754,9 +754,9 @@ alias vim = nvim
 alias v = nvim
 alias vi = nvim --clean
 alias py = py.exe
-alias c = cls
-alias ls = exa --color=auto
-alias ll = exa -la --color=auto
+alias c = clear
+alias ls = eza --color=auto
+alias ll = eza -la --color=auto
 alias serve = python -m http.server
 alias cat = bat
 alias rm = rm -t
@@ -764,8 +764,6 @@ alias oc = ouch compress
 alias od = ouch decompress
 alias db = mysql -u root -p
 alias a = overlay use activate.nu
-alias pycomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe
-alias pipcomfy = D:\AI\ComfyUI_windows_portable\python_embeded\python.exe -m pip
 alias mc = magick convert
 alias e = exit
 
