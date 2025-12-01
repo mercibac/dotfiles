@@ -2,6 +2,11 @@
     link:
       create: true
       relink: true
+    brewfile:
+      stdout: true
+    brew:
+      stderr: false
+      stdout: true
 
 - clean: ["~"]
 
