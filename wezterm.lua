@@ -31,23 +31,23 @@ config.default_prog = { "nu" }
 config.launch_menu = {
 	{
 		label = "nu",
-		args = { "nu.exe" },
+		args = { "nu" },
 	},
 	{
 		label = "pwsh",
-		args = { "pwsh.exe", "-nologo" },
+		args = { "pwsh", "-nologo" },
 	},
 	{
 		label = "cmd",
 		args = { "cmd.exe", "/k" },
 	},
 	{
-		label = "bash",
+		label = "git bash",
 		args = { "C:/Program Files/Git/bin/bash.exe" },
 	},
 	{
-		label = "wsl",
-		args = { "C:/Windows/System32/bash.exe" },
+		label = "bash - wsl",
+		args = { "bash" },
 	},
 }
 config.window_background_opacity = 0.9
