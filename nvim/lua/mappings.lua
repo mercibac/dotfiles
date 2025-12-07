@@ -5,6 +5,7 @@ local ufo = require "ufo"
 local snacks = require "snacks"
 
 -- Basics
+map("v", "<leader>y", "\"+y")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 map("n", "<A-Right>", "<C-W><")
