@@ -2,5 +2,44 @@
     link:
       create: true
       relink: true
+    brewfile:
+      stdout: true
+    brew:
+      stderr: false
+      stdout: true
 
 - clean: ["~"]
+
+- plugins:
+    - dotbot-plugins/dotbot-brew
+
+- install-brew: true
+
+- brew:
+    - starship
+    - tree-sitter
+    - tree-sitter-cli
+    - git-lfs
+    - neovim
+    - ranger
+    - tmux
+    - bat
+    - broot
+    - ctags
+    - eza
+    - fzf
+    - hyperfine
+    - tldr
+    - tokei
+    - tree
+    - zoxide
+    - ctop
+    - lazygit
+  
+- link:
+    ~/.bash_aliases: bash-aliases-linux
+
+- shell:
+    - git submodule sync --recursive
+
+    - git submodule update
