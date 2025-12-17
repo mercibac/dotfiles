@@ -1,19 +1,5 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local prcfg = {
-  settings = {
-    pyright = {
-      disableOrganizeImports = true, -- Using Ruff
-    },
-    python = {
-      analysis = {
-        ignore = { "*" }, -- Using Ruff
-        typeCheckingMode = "off", -- Using Ruff
-      },
-    },
-  },
-}
-
 local twcgf = {
   settings = {
     tailwindCSS = {
@@ -37,7 +23,6 @@ local servers = {
   cssls = {},
   tailwindcss = twcgf,
   svelte = {},
-  pyright = prcfg,
   ty = {},
   ts_ls = {},
   biome = {},
