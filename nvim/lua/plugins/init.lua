@@ -174,6 +174,7 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+	branch = "main",
     opts = {
       ensure_installed = {
         "lua",
@@ -218,6 +219,7 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
