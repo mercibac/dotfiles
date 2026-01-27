@@ -10,6 +10,20 @@ local plugins = {
   },
 
   {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      local ls = require("luasnip")
+      ls.config.set_config {
+        history = true,
+        delete_check_events = "TextChanged",
+      }
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
+
+  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
