@@ -24,7 +24,44 @@ local servers = {
   tailwindcss = twcgf,
   svelte = {},
   ty = {},
-  ts_ls = {},
+  -- REPLACEMENT: vtsls configuration
+  vtsls = {
+    -- Explicitly ensure it attaches to React files
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx"
+    },
+    settings = {
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
+      },
+      typescript = {
+        updateImportsOnFileMove = { enabled = "always" },
+        suggest = {
+          completeFunctionCalls = true,
+        },
+        inlayHints = {
+          parameterNames = { enabled = "literals" },
+          parameterTypes = { enabled = true },
+          variableTypes = { enabled = false },
+          propertyDeclarationTypes = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          enumMemberValues = { enabled = true },
+        },
+      },
+    },
+  },
   biome = {},
   docker_language_server = {},
   docker_compose_language_service = {},
