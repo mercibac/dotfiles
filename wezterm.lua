@@ -20,6 +20,14 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
+-- Prevent shell from changing the title
+config.set_environment_variables = {
+	PROMPT_COMMAND = "",
+}
+wezterm.on("format-window-title", function(tab, pane, tabs, panes)
+	return "wezterm"
+end)
+
 config.set_environment_variables = {}
 config.color_scheme = "Catppuccin Mocha"
 config.adjust_window_size_when_changing_font_size = false
