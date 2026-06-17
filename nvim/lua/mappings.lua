@@ -57,6 +57,9 @@ end, { desc = "Projects" })
 map("n", "<leader>fr", function()
   snacks.picker.recent { layout = "select" }
 end, { desc = "Recent" })
+map("n", "<leader>fw", function()
+  snacks.picker.grep({ cwd = vim.fn.getcwd() })
+end, { desc = "Snacks: Search words in CWD" })
 
 -- DAP plugin
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint <cr>")
