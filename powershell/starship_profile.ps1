@@ -38,6 +38,14 @@ function e {
     exit
 }
 
+function ll {
+    eza -la --color=auto
+}
+
+function getip {
+    (Get-NetIPAddress -InterfaceAlias Wi-Fi -AddressFamily IPv4).IPAddress
+}
+
 function which ($command) {
   Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue

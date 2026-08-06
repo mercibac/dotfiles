@@ -767,6 +767,7 @@ alias db = mysql -u root -p
 alias a = overlay use activate.nu
 alias mc = magick convert
 alias e = exit
+alias getip = powershell -Command "(Get-NetIPAddress -InterfaceAlias Wi-Fi -AddressFamily IPv4).IPAddress"
 
 def --env take [path: string] {
     mkdir $path | cd $path

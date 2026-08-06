@@ -6,3 +6,4 @@ alias v='nvim'
 alias vim='nvim'
 alias vi='vim'
 alias e='exit'
+alias getip="ip route get 1.1.1.1"
