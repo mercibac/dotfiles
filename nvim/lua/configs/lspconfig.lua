@@ -73,6 +73,7 @@ local servers = {
   biome = {},
   docker_language_server = {},
   docker_compose_language_service = {},
+  slint_lsp = {},
 }
 
 for name, opts in pairs(servers) do
