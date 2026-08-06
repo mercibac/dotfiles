@@ -25,6 +25,14 @@ local servers = {
   svelte = {},
   ty = {},
   -- REPLACEMENT: vtsls configuration
+  -- pyrefly = {
+  --   on_init = function(client)
+  --     -- Strip features so they don't compete with ty
+  --     client.server_capabilities.completionProvider = false
+  --     client.server_capabilities.documentHighlightProvider = false
+  --     client.server_capabilities.hoverProvider = false
+  --   end,
+  -- },
   vtsls = {
     -- Explicitly ensure it attaches to React files
     filetypes = {
