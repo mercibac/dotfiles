@@ -24,6 +24,7 @@ local servers = {
   tailwindcss = twcgf,
   svelte = {},
   ty = {},
+  rust_analyzer = {},
   -- REPLACEMENT: vtsls configuration
   -- pyrefly = {
   --   on_init = function(client)
