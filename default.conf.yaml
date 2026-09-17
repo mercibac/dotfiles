@@ -20,3 +20,4 @@
     ~/.config/wezterm/wezterm.lua:
     ~/.config/starship.toml: starship/starship.toml
     ~/.config/powershell:
+    ~/AppData/Roaming/alacritty/alacritty.toml:
